@@ -1,0 +1,3 @@
+* Move oh-my-tmux shell scripts to their own files
+* powerline indicator for machine (l, d, m)
+* separate tmux powerline for work machine
