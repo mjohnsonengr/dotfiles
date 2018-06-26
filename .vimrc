@@ -28,6 +28,11 @@ let g:limelight_default_coefficient = 0.8	" (default: 0.5)
 let g:limelight_paragraph_span = 0		" (default: 0)
 let g:limelight_priority = -10	" -1 to not overrule hlsearch (default: 10) (???)
 
+" Enable any local modifications
+if filereadable($HOME . '/.local_config/local.vim')
+  source ~/.local_config/local.vim
+endif
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
