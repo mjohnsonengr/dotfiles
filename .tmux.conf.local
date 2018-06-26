@@ -222,3 +222,6 @@ bind C-Space send-prefix -2
 
 # move status line to top
 set -g status-position top
+
+# decrease repeat timeout
+set -sg repeat-time 300
