@@ -1,0 +1,19 @@
+#!/bin/sh
+# This is highly customized to my laptop + monitor setup where the laptop is
+# eDP-1 and the external monitor is DP-2-1.  In "both", the external monitor is
+# chosen as primary.
+case "$1" in
+  laptop)
+    xrandr --output eDP-1 --auto --output DP-2-1 --off
+    ;;
+  external)
+    xrandr --output eDP-1 --off --output DP-2-1 --auto
+    ;;
+  both)
+    xrandr --output eDP-1 --auto --output DP-2-1 --auto --primary --left-of \
+      eDP-1
+    ;;
+  *)
+    echo "Usage: $0 {laptop|external|both}"
+    exit 1
+esac
