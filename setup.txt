@@ -1,0 +1,16 @@
+TODO: Evolve this into a full script I can run on a fresh debian install.
+
+mkdir src -- all git clones go in there.
+
+git clone ghar
+get configs and install w/ ghar
+
+## Install tools
+install xmonad & friends
+install tmux
+install vim
+install fonts-powerline
+
+## Solarized everywhere
+gnome-terminal: Profile Preferences
+gedit: https://github.com/altercation/solarized/tree/master/gedit
