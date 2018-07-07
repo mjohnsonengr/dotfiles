@@ -28,3 +28,4 @@ xcape -e 'Caps_Lock=Escape'
 # Disable CTRL-S behavior so it doesn't freeze things like vim or man.
 stty -ixon
 
+eval `dircolors "$HOME/.dircolors"`
