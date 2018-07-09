@@ -1,0 +1,6 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Marcus Johnson
+	email = mejohnson93@gmail.com
+[credential]
+	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
