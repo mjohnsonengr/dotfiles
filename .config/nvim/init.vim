@@ -1,9 +1,10 @@
+" Neovim config
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set runtimepath+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin('~/.config/nvim/bundle')
 
 
 Plugin 'VundleVim/Vundle.vim'  " let Vundle manage Vundle, required
@@ -11,17 +12,20 @@ Plugin 'VundleVim/Vundle.vim'  " let Vundle manage Vundle, required
 Plugin 'altercation/vim-colors-solarized'  " Color theme
 
 " Plugins for writing 
-Plugin 'reedes/vim-pencil'      " Super-powered writing things
 Plugin 'junegunn/goyo.vim'      " Full screen writing mode
+Plugin 'junegunn/limelight.vim' " Highlight only active paragraph
+Plugin 'reedes/vim-pencil'      " Super-powered writing things
 Plugin 'reedes/vim-lexical'     " Better spellcheck mappings
 Plugin 'reedes/vim-litecorrect' " Better autocorrections
 Plugin 'reedes/vim-textobj-sentence'    " Treat sentences as text objects
 Plugin 'reedes/vim-wordy'       " Weasel words and passive voice
 
-" Plugins w/ extensions
+" Plugins for Haskell/Cabal
+Plugin 'neovimhaskell/haskell-vim'  " Syntax highlighting and indentation
 
-" Limelight: Highlights only active paragraph
-Plugin 'junegunn/limelight.vim' 
+" Plugin settings 
+
+" Limelight
 let g:limelight_conceal_ctermfg = 'darkgray'  " Needed w/ custom color scheme
 let g:limelight_default_coefficient = 0.8     " (default: 0.5)
 let g:limelight_paragraph_span = 0            " (default: 0)
@@ -41,6 +45,9 @@ syntax on
 " DO NOT source anything after this point!
 augroup myvimrc
 autocmd!
+
+" Turn off highlighting when starting
+nohlsearch
 
 colorscheme solarized
 
