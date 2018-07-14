@@ -12,16 +12,20 @@ Plugin 'VundleVim/Vundle.vim'  " let Vundle manage Vundle, required
 Plugin 'altercation/vim-colors-solarized'  " Color theme
 
 " Plugins for writing 
-Plugin 'junegunn/goyo.vim'      " Full screen writing mode
-Plugin 'junegunn/limelight.vim' " Highlight only active paragraph
-Plugin 'reedes/vim-pencil'      " Super-powered writing things
-Plugin 'reedes/vim-lexical'     " Better spellcheck mappings
-Plugin 'reedes/vim-litecorrect' " Better autocorrections
-Plugin 'reedes/vim-textobj-sentence'    " Treat sentences as text objects
-Plugin 'reedes/vim-wordy'       " Weasel words and passive voice
+Plugin 'junegunn/goyo.vim'            " Full screen writing mode
+Plugin 'junegunn/limelight.vim'       " Highlight only active paragraph
+Plugin 'reedes/vim-pencil'            " Super-powered writing things
+Plugin 'reedes/vim-lexical'           " Better spellcheck mappings
+Plugin 'reedes/vim-litecorrect'       " Better autocorrections
+Plugin 'reedes/vim-textobj-sentence'  " Treat sentences as text objects
+Plugin 'reedes/vim-wordy'             " Weasel words and passive voice
+
+" Plugins for coding
+Plugin 'godlygeek/tabular'            " Vertical text alignment (:Tab)
+Plugin 'scrooloose/nerdcommenter'     " Comment functions
 
 " Plugins for Haskell/Cabal
-Plugin 'neovimhaskell/haskell-vim'  " Syntax highlighting and indentation
+Plugin 'neovimhaskell/haskell-vim'    " Syntax highlighting and indentation
 
 " Plugin settings 
 
@@ -29,7 +33,7 @@ Plugin 'neovimhaskell/haskell-vim'  " Syntax highlighting and indentation
 let g:limelight_conceal_ctermfg = 'darkgray'  " Needed w/ custom color scheme
 let g:limelight_default_coefficient = 0.8     " (default: 0.5)
 let g:limelight_paragraph_span = 0            " (default: 0)
-let g:limelight_priority = -1        " -1 to not overrule hlsearch (default: 10) (???)
+let g:limelight_priority = -1                 " -1 to not overrule hlsearch (default: 10) (???)
 
 " Enable any local modifications
 if filereadable($HOME . '/.local_config/local.vim')
@@ -51,16 +55,27 @@ nohlsearch
 
 colorscheme solarized
 
+" TODO: Don't disable this?
+"set guicursor=      " Disable guicursor.. neovim/neovim#7049
+
 set background=dark
-set expandtab       " Tab key inserts spaces instead of tab characters.
-set hlsearch        " Highlight search results
-set incsearch       " Highlight search results while typing
-set scrolloff=10    " Leave 10 lines of room on top/bottom when cursor is near
-set shiftround      " Tab inserts spaces to nearest softtabstop
-set shiftwidth=2    " Indent is two spaces.
-set smarttab        " Tab key inserts spaces to line up with tab stops.
-set softtabstop=2   " Tab key inserts two spaces.
-set tabstop=8       " Tabs are 8 characters wide.
+set expandtab             " Tab key inserts spaces instead of tab characters.
+set hlsearch              " Highlight search results
+set ignorecase            " Make search patterns case-insensitive.
+set incsearch             " Highlight search results while typing
+set relativenumber        " Relative line numbers
+set scrolloff=10          " Leave 10 lines of room on top/bottom when cursor is near
+set shiftround            " Tab inserts spaces to nearest softtabstop
+set shiftwidth=2          " Indent is two spaces.
+set showmatch             " When a bracket is inserted, briefly jump to the matching one.
+set smartcase             " Ignore ignorecase when an uppercase letter is used in search
+"set smartindent            " TODO: Do I need this?
+set smarttab              " Tab key inserts spaces to line up with tab stops.
+set softtabstop=2         " Tab key inserts two spaces.
+set tabstop=8             " Tabs are 8 characters wide.
+set textwidth=100         " Caps lines at 100 chars
+set visualbell            " Use visual bell instead of beeping.
+set wildmode=list:longest " Complete longest common cmd, then list alternatives.
 
 " Use Pencil for text/markdown files
 autocmd filetype markdown,mkd call pencil#init()
@@ -75,6 +90,7 @@ autocmd! User GoyoLeave Limelight!
 
 " insert mode indicators (current line underline and cursor shape
 " https://stackoverflow.com/a/6489348/1405720
+hi CursorLine gui=underline cterm=underline   " Retain underline cursorline in NeoVim
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 " https://stackoverflow.com/a/42118416/1405720

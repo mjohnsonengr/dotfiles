@@ -225,3 +225,6 @@ set -g status-position top
 
 # decrease repeat timeout
 set -sg repeat-time 300
+
+# Fix the "[2 q" cursor in neovim
+set -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
