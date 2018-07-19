@@ -60,6 +60,7 @@ colorscheme solarized
 
 set background=dark
 set expandtab             " Tab key inserts spaces instead of tab characters.
+set hidden                " Don't unload abandoned buffers, but allow them to hide.
 set hlsearch              " Highlight search results
 set ignorecase            " Make search patterns case-insensitive.
 set incsearch             " Highlight search results while typing
