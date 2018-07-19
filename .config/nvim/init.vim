@@ -2,6 +2,10 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" Python provider configuration for faster loading per :h nvim-python
+let g:python3_host_prog = '/usr/bin/python3'  " Python 3 path
+let g:loaded_python_provider = 1              " Disable Python 2
+
 " set the runtime path to include Vundle and initialize
 set runtimepath+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin('~/.config/nvim/bundle')
@@ -11,29 +15,37 @@ Plugin 'VundleVim/Vundle.vim'  " let Vundle manage Vundle, required
 
 Plugin 'altercation/vim-colors-solarized'  " Color theme
 
-" Plugins for writing 
-Plugin 'junegunn/goyo.vim'            " Full screen writing mode
-Plugin 'junegunn/limelight.vim'       " Highlight only active paragraph
-Plugin 'reedes/vim-pencil'            " Super-powered writing things
-Plugin 'reedes/vim-lexical'           " Better spellcheck mappings
-Plugin 'reedes/vim-litecorrect'       " Better autocorrections
-Plugin 'reedes/vim-textobj-sentence'  " Treat sentences as text objects
-Plugin 'reedes/vim-wordy'             " Weasel words and passive voice
+" Plugins for writing
+Plugin 'junegunn/goyo.vim'              " Full screen writing mode
+Plugin 'junegunn/limelight.vim'         " Highlight only active paragraph
+Plugin 'reedes/vim-pencil'              " Super-powered writing things
+Plugin 'reedes/vim-lexical'             " Better spellcheck mappings
+Plugin 'reedes/vim-litecorrect'         " Better autocorrections
+Plugin 'reedes/vim-textobj-sentence'    " Treat sentences as text objects
+Plugin 'reedes/vim-wordy'               " Weasel words and passive voice
 
 " Plugins for coding
-Plugin 'godlygeek/tabular'            " Vertical text alignment (:Tab)
-Plugin 'scrooloose/nerdcommenter'     " Comment functions
+Plugin 'godlygeek/tabular'              " Vertical text alignment (:Tab)
+Plugin 'scrooloose/nerdcommenter'       " Comment functions
+Plugin 'ntpeters/vim-better-whitespace' " Highlight and remove trailing whitespace
+
+" Plugins for markdown
+Plugin 'plasticboy/vim-markdown'        " Markdown syntax highlighting, extensions
 
 " Plugins for Haskell/Cabal
-Plugin 'neovimhaskell/haskell-vim'    " Syntax highlighting and indentation
+Plugin 'neovimhaskell/haskell-vim'      " Syntax highlighting and indentation
 
-" Plugin settings 
+" ### Plugin settings ###
 
 " Limelight
 let g:limelight_conceal_ctermfg = 'darkgray'  " Needed w/ custom color scheme
 let g:limelight_default_coefficient = 0.8     " (default: 0.5)
 let g:limelight_paragraph_span = 0            " (default: 0)
-let g:limelight_priority = -1                 " -1 to not overrule hlsearch (default: 10) (???)
+let g:limelight_priority = -1                 " -1 to not overrule hlsearch
+
+" vim-markdown
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_new_list_item_indent = 2
 
 " Enable any local modifications
 if filereadable($HOME . '/.local_config/local.vim')
@@ -45,19 +57,8 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
-" Put all my autocmds in the same group
-" DO NOT source anything after this point!
-augroup myvimrc
-autocmd!
-
-" Turn off highlighting when starting
-nohlsearch
-
+" Settings
 colorscheme solarized
-
-" TODO: Don't disable this?
-"set guicursor=      " Disable guicursor.. neovim/neovim#7049
-
 set background=dark
 set expandtab             " Tab key inserts spaces instead of tab characters.
 set hlsearch              " Highlight search results
@@ -67,15 +68,27 @@ set relativenumber        " Relative line numbers
 set scrolloff=10          " Leave 10 lines of room on top/bottom when cursor is near
 set shiftround            " Tab inserts spaces to nearest softtabstop
 set shiftwidth=2          " Indent is two spaces.
-set showmatch             " When a bracket is inserted, briefly jump to the matching one.
+set showmatch             " When a bracket is inserted, briefly jump to matching one.
 set smartcase             " Ignore ignorecase when an uppercase letter is used in search
-"set smartindent            " TODO: Do I need this?
+set smartindent           " Smart auto indent
 set smarttab              " Tab key inserts spaces to line up with tab stops.
 set softtabstop=2         " Tab key inserts two spaces.
 set tabstop=8             " Tabs are 8 characters wide.
 set textwidth=100         " Caps lines at 100 chars
 set visualbell            " Use visual bell instead of beeping.
 set wildmode=list:longest " Complete longest common cmd, then list alternatives.
+
+" Key mappings
+" Disable all Ctrl-A; too easy to accidentally hit in tmux.
+map <C-a> <Nop>
+map! <C-a> <Nop>
+
+" TODO: Make Y yank till end (yy yanks whole line) -- similar to d
+
+" Put all my autocmds in the same group
+" DO NOT source anything after this point!
+augroup myvimrc
+autocmd!
 
 " Use Pencil for text/markdown files
 autocmd filetype markdown,mkd call pencil#init()
@@ -97,6 +110,9 @@ autocmd InsertLeave * set nocul
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 autocmd VimEnter * silent !echo -ne "\e[2 q"
+
+" No text-width formatting for markdown
+autocmd FileType markdown setlocal formatoptions-=t
 
 " TODO/wishlist:
 " * H and L for begin/end line? what about top/bottom of screen?  J and K? or
