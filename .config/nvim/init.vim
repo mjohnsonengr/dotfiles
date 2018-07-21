@@ -10,10 +10,16 @@ let g:loaded_python_provider = 1              " Disable Python 2
 set runtimepath+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin('~/.config/nvim/bundle')
 
+" ---- Plugins ----
 
 Plugin 'VundleVim/Vundle.vim'  " let Vundle manage Vundle, required
 
-Plugin 'altercation/vim-colors-solarized'  " Color theme
+Plugin 'altercation/vim-colors-solarized'   " Color theme
+Plugin 'vim-airline/vim-airline'            " Airline status bar
+Plugin 'vim-airline/vim-airline-themes'     " Airline themes
+
+" Plugin dependencies
+Plugin 'roxma/nvim-yarp'                " Required for ncm2/ncm2
 
 " Plugins for writing
 Plugin 'junegunn/goyo.vim'              " Full screen writing mode
@@ -28,6 +34,10 @@ Plugin 'reedes/vim-wordy'               " Weasel words and passive voice
 Plugin 'godlygeek/tabular'              " Vertical text alignment (:Tab)
 Plugin 'scrooloose/nerdcommenter'       " Comment functions
 Plugin 'ntpeters/vim-better-whitespace' " Highlight and remove trailing whitespace
+" TODO: Get this non-annoying in Java
+"Plugin 'w0rp/ale'                       " Asynchronous Linting Engine
+Plugin 'ncm2/ncm2'                      " Neovim Completion Manager
+Plugin 'autozimu/LanguageClient-neovim' " LSP integration
 
 " Plugins for markdown
 Plugin 'plasticboy/vim-markdown'        " Markdown syntax highlighting, extensions
@@ -35,7 +45,12 @@ Plugin 'plasticboy/vim-markdown'        " Markdown syntax highlighting, extensio
 " Plugins for Haskell/Cabal
 Plugin 'neovimhaskell/haskell-vim'      " Syntax highlighting and indentation
 
-" ### Plugin settings ###
+" ---- Plugin settings ----
+
+" airline
+let g:airline_theme='solarized'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1  " tab line
 
 " Limelight
 let g:limelight_conceal_ctermfg = 'darkgray'  " Needed w/ custom color scheme
@@ -57,46 +72,58 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
-" Settings
+" ---- Settings ----
 colorscheme solarized
 set background=dark
-set expandtab             " Tab key inserts spaces instead of tab characters.
-set hidden                " Don't unload abandoned buffers, but allow them to hide.
-set hlsearch              " Highlight search results
-set ignorecase            " Make search patterns case-insensitive.
-set incsearch             " Highlight search results while typing
-set relativenumber        " Relative line numbers
-set scrolloff=10          " Leave 10 lines of room on top/bottom when cursor is near
-set shiftround            " Tab inserts spaces to nearest softtabstop
-set shiftwidth=2          " Indent is two spaces.
-set showmatch             " When a bracket is inserted, briefly jump to matching one.
-set smartcase             " Ignore ignorecase when an uppercase letter is used in search
-set smartindent           " Smart auto indent
-set smarttab              " Tab key inserts spaces to line up with tab stops.
-set softtabstop=2         " Tab key inserts two spaces.
-set tabstop=8             " Tabs are 8 characters wide.
-set textwidth=100         " Caps lines at 100 chars
-set visualbell            " Use visual bell instead of beeping.
-set wildmode=list:longest " Complete longest common cmd, then list alternatives.
+set backspace=indent,start  " Can backspace over indent, or start of insert, but not eol
+set completeopt=noinsert,menuone,noselect,preview " Options needed for ncm2
+set expandtab               " Tab key inserts spaces instead of tab characters.
+set hidden                  " Don't unload abandoned buffers, but allow them to hide.
+set hlsearch                " Highlight search results
+set ignorecase              " Make search patterns case-insensitive.
+set incsearch               " Highlight search results while typing
+set relativenumber          " Relative line numbers
+set scrolloff=10            " Leave 10 lines of room on top/bottom when cursor is near
+set shiftround              " Tab inserts spaces to nearest softtabstop
+set shiftwidth=2            " Indent is two spaces.
+set showmatch               " When a bracket is inserted, briefly jump to matching one.
+set smartcase               " Ignore ignorecase when an uppercase letter is used in search
+set smartindent             " Smart auto indent
+set smarttab                " Tab key inserts spaces to line up with tab stops.
+set softtabstop=2           " Tab key inserts two spaces.
+set tabstop=8               " Tabs are 8 characters wide.
+set textwidth=100           " Caps lines at 100 chars
+set visualbell              " Use visual bell instead of beeping.
+set wildmode=list:longest   " Complete longest common cmd, then list alternatives.
 
-" Key mappings
+" ---- Key mappings ----
+
 " Disable all Ctrl-A; too easy to accidentally hit in tmux.
 map <C-a> <Nop>
 map! <C-a> <Nop>
 
+" LanguageClient-neovim keybindings
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
 " TODO: Make Y yank till end (yy yanks whole line) -- similar to d
 
-" Put all my autocmds in the same group
-" DO NOT source anything after this point!
+" ---- autocmds ----
 augroup myvimrc
 autocmd!
 
-" Use Pencil for text/markdown files
+" markdown options: Use Pencil, lexical and litecorrect.
 autocmd filetype markdown,mkd call pencil#init()
   \ | call lexical#init()
   \ | call litecorrect#init()
-  \ | setl spell spl=en_us fdl=4 noru nonu nornu
-  \ | setl fdo+=search
+  \ | setlocal spell spelllang=en_us foldlevel=4
+  \ | setlocal foldopen+=search
+  \ | setlocal formatoptions-=t
+
+" No text-wrapping formatting for hgcommit
+autocmd filetype hgcommit setlocal formatoptions-=t
 
 " Goyo + Limelight integration
 autocmd! User GoyoEnter Limelight
@@ -104,16 +131,13 @@ autocmd! User GoyoLeave Limelight!
 
 " insert mode indicators (current line underline and cursor shape
 " https://stackoverflow.com/a/6489348/1405720
-hi CursorLine gui=underline cterm=underline   " Retain underline cursorline in NeoVim
-autocmd InsertEnter * set cul
-autocmd InsertLeave * set nocul
+highlight CursorLine gui=underline cterm=underline   " Retain underline cursorline in NeoVim
+autocmd InsertEnter * set cursorline
+autocmd InsertLeave * set nocursorline
 " https://stackoverflow.com/a/42118416/1405720
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
-autocmd VimEnter * silent !echo -ne "\e[2 q"
-
-" No text-width formatting for markdown
-autocmd FileType markdown setlocal formatoptions-=t
+"autocmd VimEnter * silent !echo -ne "\e[2 q"
 
 " TODO/wishlist:
 " * H and L for begin/end line? what about top/bottom of screen?  J and K? or
