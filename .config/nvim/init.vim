@@ -35,7 +35,7 @@ Plugin 'godlygeek/tabular'              " Vertical text alignment (:Tab)
 Plugin 'scrooloose/nerdcommenter'       " Comment functions
 Plugin 'ntpeters/vim-better-whitespace' " Highlight and remove trailing whitespace
 " TODO: Get this non-annoying in Java
-"Plugin 'w0rp/ale'                       " Asynchronous Linting Engine
+Plugin 'w0rp/ale'                       " Asynchronous Linting Engine
 Plugin 'ncm2/ncm2'                      " Neovim Completion Manager
 Plugin 'autozimu/LanguageClient-neovim' " LSP integration
 
@@ -57,6 +57,13 @@ let g:limelight_conceal_ctermfg = 'darkgray'  " Needed w/ custom color scheme
 let g:limelight_default_coefficient = 0.8     " (default: 0.5)
 let g:limelight_paragraph_span = 0            " (default: 0)
 let g:limelight_priority = -1                 " -1 to not overrule hlsearch
+
+" ale
+let g:ale_linters = {}
+
+" LanguageClient-neovim
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_serverCommands = {}
 
 " vim-markdown
 let g:vim_markdown_auto_insert_bullets = 0
