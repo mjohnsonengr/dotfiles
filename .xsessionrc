@@ -1,1 +1,3 @@
-. ~/.profile
+# Remap caps lock to be an escape key and a control modifier.
+setxkbmap -option 'caps:ctrl_modifier'
+
