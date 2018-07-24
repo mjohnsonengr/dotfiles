@@ -26,9 +26,8 @@ if [ -d "$HOME/.local/bin" ] ; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Remap caps lock to be an escape key and a control modifier.
+# Remap caps lock to be a control modifier.
 setxkbmap -option 'caps:ctrl_modifier'
-xcape -e 'Caps_Lock=Escape'
 
 # Disable CTRL-S behavior so it doesn't freeze things like vim or man.
 stty -ixon

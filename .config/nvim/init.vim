@@ -105,6 +105,9 @@ set wildmode=list:longest   " Complete longest common cmd, then list alternative
 
 " ---- Key mappings ----
 
+" jk for <ESC>
+inoremap jk <ESC>
+
 " Disable all Ctrl-A; too easy to accidentally hit in tmux.
 map <C-a> <Nop>
 map! <C-a> <Nop>
@@ -120,6 +123,11 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " ---- autocmds ----
 augroup myvimrc
 autocmd!
+
+" Start ncm2
+autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd TextChangedI * call ncm2#auto_trigger()
+
 
 " markdown options: Use Pencil, lexical and litecorrect.
 autocmd filetype markdown,mkd call pencil#init()
