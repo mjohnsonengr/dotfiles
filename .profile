@@ -26,6 +26,11 @@ if [ -d "$HOME/.local/bin" ] ; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH so it includes local rubies.
+if which ruby >/dev/null && which gem >/dev/null; then
+  PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
 # Disable CTRL-S behavior so it doesn't freeze things like vim or man.
 stty -ixon
 
