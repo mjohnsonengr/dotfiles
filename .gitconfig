@@ -4,3 +4,5 @@
 	email = mejohnson93@gmail.com
 [credential]
 	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+[pull]
+	rebase = true

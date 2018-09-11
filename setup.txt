@@ -1,16 +1,44 @@
-TODO: Evolve this into a full script I can run on a fresh debian install.
+# TODO: Evolve this into a full script I can run on a fresh debian install.
 
-mkdir src -- all git clones go in there.
+mkdir src  # for git clones
+git clone https://github.com/philips/ghar.git src/ghar
+# TODO: ghar add 
+git clone https://github.com/mjohnsonengr/dotfiles.git src/ghar/devel
+src/ghar/bin/ghar install
 
-git clone ghar
-get configs and install w/ ghar
+. .profile
+# TODO: need to source others?
 
-## Install tools
+# apt-get packages to install
+neovim
+python3-pip
+
+## Install tools TODO: actual commands
 install xmonad & friends
 install tmux
 install vim
 install fonts-powerline
 
+# Setup neovim
+pip3 install neovim
+cd ~/.config/nvim
+mkdir bundle
+git clone https://github.com/VundleVim/Vundle.vim.git bundle/Vundle.vim
+# TODO: run neovim w/ :PluginInstall
+cd ~/.config/nvim/bundle/LanguageClient-neovim
+./install.sh
+
 ## Solarized everywhere
-gnome-terminal: Profile Preferences
-gedit: https://github.com/altercation/solarized/tree/master/gedit
+gnome-terminal: Profile Preferences # TODO: While here, fix other stuff?
+gedit: # TODO: ☰ > Preferences > Font & Colors?
+# gedit: https://github.com/altercation/solarized/tree/master/gedit 
+
+# Customize apps
+gnome-terminal:
+  * Edit -> Profile Preferences
+    * General:
+      * Initial terminal size: 132 * 43
+    * Color:
+      * Uncheck "Use colors from system t heme"
+      * Built-in schemes: "Solarized dark"
+      * Palette: "Solarized"
