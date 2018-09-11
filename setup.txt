@@ -12,12 +12,18 @@ src/ghar/bin/ghar install
 # apt-get packages to install
 neovim
 python3-pip
+libsecret-1-0
+libsecret-1-dev
 
 ## Install tools TODO: actual commands
 install xmonad & friends
 install tmux
 install vim
 install fonts-powerline
+
+# Build libsecret
+cd /usr/share/doc/git/contrib/credential/libsecret
+sudo make
 
 # Setup neovim
 pip3 install neovim
