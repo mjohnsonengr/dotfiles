@@ -1,0 +1,3 @@
+set editing-mode vi
+set horizontal-scroll-mode Off
+set show-mode-in-prompt on
