@@ -89,6 +89,7 @@ set hidden                  " Don't unload abandoned buffers, but allow them to 
 set hlsearch                " Highlight search results
 set ignorecase              " Make search patterns case-insensitive.
 set incsearch               " Highlight search results while typing
+set number                  " Hybrid line numbers when used in combination with relativenumber
 set relativenumber          " Relative line numbers
 set scrolloff=10            " Leave 10 lines of room on top/bottom when cursor is near
 set shiftround              " Tab inserts spaces to nearest softtabstop
