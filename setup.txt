@@ -2,7 +2,7 @@
 
 mkdir src  # for git clones
 git clone https://github.com/philips/ghar.git src/ghar
-# TODO: ghar add 
+# TODO: ghar add
 git clone https://github.com/mjohnsonengr/dotfiles.git src/ghar/devel
 src/ghar/bin/ghar install
 
@@ -48,3 +48,4 @@ gnome-terminal:
       * Uncheck "Use colors from system t heme"
       * Built-in schemes: "Solarized dark"
       * Palette: "Solarized"
+

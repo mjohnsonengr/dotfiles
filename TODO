@@ -1,3 +1,5 @@
 * Move oh-my-tmux shell scripts to their own files
 * powerline indicator for machine (l, d, m)
 * separate tmux powerline for work machine
+* bin/links -- folder in local ghar, linked in ~/bin/links and added to PATH.  Contains links to
+    /google/... binaries.

@@ -1,0 +1,20 @@
+set ignorecase
+set scrolloff=5
+set smartcase
+set number
+set relativenumber
+" TODO more settings here?
+
+inoremap jk <ESC>
+
+" TODO settings common to ideavimrc|vimrc|init.vim
+
+" Commenting
+noremap <leader>c<Space> :action CommentByLineComment<CR>
+
+" Disable C-a which I accidentally hit too often.
+map <C-a> <Nop>
+
+" TODO Ideas:
+" https://github.com/Valloric/dotfiles/blob/master/intellij/ideavimrc
+" https://github.com/beloglazov/vimrc/blob/master/.ideavimrc

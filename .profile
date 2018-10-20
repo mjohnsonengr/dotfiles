@@ -16,6 +16,11 @@ if [ -n "$BASH_VERSION" ]; then
   fi
 fi
 
+# source local.profile
+if [ -f "$HOME/.local_config/local.profile" ]; then
+  . "$HOME/.local_config/local.profile"
+fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
@@ -26,12 +31,20 @@ if [ -d "$HOME/.local/bin" ] ; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH so it includes bin/scritps and bin/links if they exist.
+if [ -d "$HOME/bin/scripts" ] ; then
+  PATH="$HOME/bin/scripts:$PATH"
+fi
+if [ -d "$HOME/bin/links" ] ; then
+  PATH="$HOME/bin/links:$PATH"
+fi
+
 # set PATH so it includes local rubies.
 if which ruby >/dev/null && which gem >/dev/null; then
   PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-# Disable CTRL-S behavior so it doesn't freeze things like vim or man.
+# disable CTRL-S behavior so it doesn't freeze things like vim or man.
 stty -ixon
 
 eval `dircolors "$HOME/.dircolors"`
