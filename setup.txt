@@ -12,18 +12,19 @@ src/ghar/bin/ghar install
 . .profile
 # TODO: need to source others?
 
-# apt-get packages to install
+# apt-get packages to install (alphabetical)
+clipit
 git
+libsecret-1-0
+libsecret-1-dev
 mercurial
 neovim
+openjdk-11-jdk
+openjdk-11-jre
 python3-pip
 python3-neovim
 python3-setuptools
-libsecret-1-0
-libsecret-1-dev
-openjdk-11-jdk
-openjdk-11-jre
-clipit
+xclip
 
 ## Install tools TODO: actual commands
 install xmonad & friends
