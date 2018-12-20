@@ -4,13 +4,29 @@ set smartcase
 set number
 set relativenumber
 " TODO more settings here?
+"
+" Enable any local modifications
+if filereadable($HOME . '/.local_config/localidea.vim')
+  source ~/.local_config/localidea.vim
+endif
 
+" TODO these are also in init.vim
 inoremap jk <ESC>
+
+noremap Y y$
+
+noremap <leader>p "+p
+noremap <leader>y "+y
+noremap <leader>Y "+Y
 
 " TODO settings common to ideavimrc|vimrc|init.vim
 
 " Commenting
 noremap <leader>c<Space> :action CommentByLineComment<CR>
+
+" IntelliJ actions
+noremap <leader>t :action GotoTest<CR>
+" TODO make one for mark as resolved
 
 " Disable C-a which I accidentally hit too often.
 map <C-a> <Nop>

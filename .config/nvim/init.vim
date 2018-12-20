@@ -21,6 +21,9 @@ Plugin 'vim-airline/vim-airline-themes'     " Airline themes
 " Plugin dependencies
 Plugin 'roxma/nvim-yarp'                " Required for ncm2/ncm2
 
+" General plugins
+Plugin 'roxma/vim-tmux-clipboard'       " tmux clipboard integration
+
 " Plugins for writing
 Plugin 'junegunn/goyo.vim'              " Full screen writing mode
 Plugin 'junegunn/limelight.vim'         " Highlight only active paragraph
@@ -120,6 +123,12 @@ nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " TODO: Make Y yank till end (yy yanks whole line) -- similar to d
+noremap Y y$
+
+" Easier copy/paste
+noremap <leader>p "+p
+noremap <leader>y "+y
+noremap <leader>Y "+Y
 
 " ---- autocmds ----
 augroup myvimrc
