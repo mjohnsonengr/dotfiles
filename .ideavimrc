@@ -12,6 +12,7 @@ endif
 
 " TODO these are also in init.vim
 inoremap jk <ESC>
+inoremap kj <ESC>
 
 noremap Y y$
 

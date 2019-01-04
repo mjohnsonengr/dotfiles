@@ -140,7 +140,7 @@ autocmd TextChangedI * call ncm2#auto_trigger()
 
 
 " markdown options: Use Pencil, lexical and litecorrect.
-autocmd filetype markdown,mkd call pencil#init()
+autocmd filetype markdown,mkd call pencil#init({'autoformat': 0})
   \ | call lexical#init()
   \ | call litecorrect#init()
   \ | setlocal spell spelllang=en_us foldlevel=4
