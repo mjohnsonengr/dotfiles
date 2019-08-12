@@ -37,10 +37,11 @@ Plugin 'reedes/vim-wordy'               " Weasel words and passive voice
 Plugin 'godlygeek/tabular'              " Vertical text alignment (:Tab)
 Plugin 'scrooloose/nerdcommenter'       " Comment functions
 Plugin 'ntpeters/vim-better-whitespace' " Highlight and remove trailing whitespace
-" TODO: Get this non-annoying in Java
-Plugin 'w0rp/ale'                       " Asynchronous Linting Engine
-Plugin 'ncm2/ncm2'                      " Neovim Completion Manager
-Plugin 'autozimu/LanguageClient-neovim' " LSP integration
+" TODO: Get ale non-annoying in Java
+" TODO: Get these 3 to not slow vim way down for JavaScript.
+" Plugin 'w0rp/ale'                       " Asynchronous Linting Engine
+" Plugin 'ncm2/ncm2'                      " Neovim Completion Manager
+" Plugin 'autozimu/LanguageClient-neovim' " LSP integration
 
 " Plugins for markdown
 Plugin 'plasticboy/vim-markdown'        " Markdown syntax highlighting, extensions
@@ -85,7 +86,7 @@ syntax on
 " ---- Settings ----
 colorscheme solarized
 set background=dark
-set backspace=indent,start  " Can backspace over indent, or start of insert, but not eol
+set backspace=indent,start,eol  " Can backspace over indent, start of insert, or eol
 set completeopt=noinsert,menuone,noselect,preview " Options needed for ncm2
 set expandtab               " Tab key inserts spaces instead of tab characters.
 set hidden                  " Don't unload abandoned buffers, but allow them to hide.
@@ -109,7 +110,7 @@ set wildmode=list:longest   " Complete longest common cmd, then list alternative
 
 " ---- Key mappings ----
 
-" jk for <ESC>
+" jk/kj for <ESC>
 inoremap jk <ESC>
 
 " Disable all Ctrl-A; too easy to accidentally hit in tmux.
@@ -122,11 +123,12 @@ nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
-" TODO: Make Y yank till end (yy yanks whole line) -- similar to d
+" Make Y yank till end (yy yanks whole line) -- similar to D
 noremap Y y$
 
 " Easier copy/paste
 noremap <leader>p "+p
+noremap <leader>P "+P
 noremap <leader>y "+y
 noremap <leader>Y "+Y
 
@@ -135,8 +137,8 @@ augroup myvimrc
 autocmd!
 
 " Start ncm2
-autocmd BufEnter * call ncm2#enable_for_buffer()
-autocmd TextChangedI * call ncm2#auto_trigger()
+"autocmd BufEnter * call ncm2#enable_for_buffer()
+"autocmd TextChangedI * call ncm2#auto_trigger()
 
 
 " markdown options: Use Pencil, lexical and litecorrect.

@@ -1,3 +1,13 @@
+# -- plugins -------------------------------------------------------------------
+# List of plugins
+set -g @tpm_plugins '          \
+  tmux-plugins/tpm             \
+  tmux-plugins/tmux-resurrect  \
+  tmux-plugins/tmux-continuum  \
+'
+
+set -g @continuum-restore 'on'
+
 # -- windows & pane creation ---------------------------------------------------
 
 # new window retains current path (true/False)
@@ -228,3 +238,6 @@ set -sg repeat-time 300
 
 # Fix the "[2 q" cursor in neovim
 set -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

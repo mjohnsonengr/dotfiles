@@ -12,7 +12,7 @@ endif
 
 " TODO these are also in init.vim
 inoremap jk <ESC>
-inoremap kj <ESC>
+"inoremap kj <ESC>
 
 noremap Y y$
 
@@ -27,7 +27,6 @@ noremap <leader>c<Space> :action CommentByLineComment<CR>
 
 " IntelliJ actions
 noremap <leader>t :action GotoTest<CR>
-" TODO make one for mark as resolved
 
 " Disable C-a which I accidentally hit too often.
 map <C-a> <Nop>
