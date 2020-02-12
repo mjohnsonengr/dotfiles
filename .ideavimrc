@@ -3,6 +3,7 @@ set scrolloff=5
 set smartcase
 set number
 set relativenumber
+set visualbell
 " TODO more settings here?
 "
 " Enable any local modifications
