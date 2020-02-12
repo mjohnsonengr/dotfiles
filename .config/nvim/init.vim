@@ -32,6 +32,7 @@ Plugin 'reedes/vim-lexical'             " Better spellcheck mappings
 Plugin 'reedes/vim-litecorrect'         " Better autocorrections
 Plugin 'reedes/vim-textobj-sentence'    " Treat sentences as text objects
 Plugin 'reedes/vim-wordy'               " Weasel words and passive voice
+Plugin 'tpope/vim-abolish'              " Abbreviation, Substitution, Coercion
 
 " Plugins for coding
 Plugin 'godlygeek/tabular'              " Vertical text alignment (:Tab)
