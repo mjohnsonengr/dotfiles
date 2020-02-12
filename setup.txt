@@ -24,12 +24,19 @@ openjdk-11-jre
 python3-pip
 python3-neovim
 python3-setuptools
+tree
 xclip
+snapd
+
+# TODO i3:
+# What even are these and which do I need?
+# i3, i3status, i3lock, dmenu, feh, xautolock, dunst, scrot
+# but I uninstalled feh, dunst and scrot?
 
 ## Install tools TODO: actual commands
-install xmonad & friends
+install xmonad or i3 & friends?
 install tmux
-install vim
+install vim?
 install fonts-powerline
 
 # Build libsecret
@@ -44,6 +51,16 @@ git clone https://github.com/VundleVim/Vundle.vim.git bundle/Vundle.vim
 nvim -c 'PluginInstall'
 cd ~/.config/nvim/bundle/LanguageClient-neovim
 ./install.sh
+
+# Get SDKMAN! (per https://sdkman.io/install)
+curl -s "https://get.sdkman.io" | bash
+
+# Get sdks
+sdk install kotlin
+sdk install gradle
+
+# IntelliJ
+snap install intellij-idea-community --classic
 
 ## Solarized everywhere
 gnome-terminal: Profile Preferences # TODO: While here, fix other stuff?
