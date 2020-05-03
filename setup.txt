@@ -1,5 +1,6 @@
 # TODO: Evolve this into a full script I can run on a fresh debian install.
 
+sudo apt install git
 mkdir src  # for git clones
 git clone https://github.com/philips/ghar.git src/ghar
 # TODO: ghar add
@@ -7,6 +8,9 @@ git clone https://github.com/mjohnsonengr/dotfiles.git src/ghar/devel
 # TODO: ghar install seems to make links for directories; prefer to avoid that
 # in most cases.. Maybe should start with a script to createa directories I
 # don't want as links.
+mkdir bin
+mkdir .config/Google
+mkdir .config/nvim
 src/ghar/bin/ghar install
 
 . .profile
@@ -44,28 +48,26 @@ cd /usr/share/doc/git/contrib/credential/libsecret
 sudo make
 
 # Setup neovim
-pip3 install wheel neovim
+# I think this is required: python3 -m pip install --user virtualenv
+# TODO: Make sure the below is correct (what is it installing it to?)
+python3 -m pip install wheel neovim
 cd ~/.config/nvim
 mkdir bundle
 git clone https://github.com/VundleVim/Vundle.vim.git bundle/Vundle.vim
 nvim -c 'PluginInstall'
-cd ~/.config/nvim/bundle/LanguageClient-neovim
-./install.sh
+# Not currently using this plugin
+# cd ~/.config/nvim/bundle/LanguageClient-neovim
+# ./install.sh
 
-# Get SDKMAN! (per https://sdkman.io/install)
-curl -s "https://get.sdkman.io" | bash
-
-# Get sdks
-sdk install kotlin
-sdk install gradle
-
-# IntelliJ
+# IntelliJ, PyCharm
 snap install intellij-idea-community --classic
+snap install pycharm-community --classic
 
 ## Solarized everywhere
 gnome-terminal: Profile Preferences # TODO: While here, fix other stuff?
 gedit: # TODO: ☰ > Preferences > Font & Colors?
-# gedit: https://github.com/altercation/solarized/tree/master/gedit 
+# gedit: https://github.com/altercation/solarized/tree/master/gedit
+xed: Edit > Preferences > Theme > Solarized Dark 
 
 # Customize apps
 gnome-terminal:
@@ -95,3 +97,4 @@ timedatectl set-local-rtc 1
 # sdkman
 curl -s "https://get.sdkman.io" | bash
 sdk install kotlin
+sdk install gradle
