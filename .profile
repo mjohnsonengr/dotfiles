@@ -44,7 +44,4 @@ if which ruby >/dev/null && which gem >/dev/null; then
   PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-# disable CTRL-S behavior so it doesn't freeze things like vim or man.
-stty -ixon
-
 eval `dircolors "$HOME/.dircolors"`

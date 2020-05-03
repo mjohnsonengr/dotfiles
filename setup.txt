@@ -14,6 +14,7 @@ src/ghar/bin/ghar install
 
 # apt-get packages to install (alphabetical)
 clipit
+fonts-powerline
 git
 libsecret-1-0
 libsecret-1-dev
@@ -24,9 +25,10 @@ openjdk-11-jre
 python3-pip
 python3-neovim
 python3-setuptools
+snapd
+tmux
 tree
 xclip
-snapd
 
 # TODO i3:
 # What even are these and which do I need?
@@ -35,9 +37,7 @@ snapd
 
 ## Install tools TODO: actual commands
 install xmonad or i3 & friends?
-install tmux
 install vim?
-install fonts-powerline
 
 # Build libsecret
 cd /usr/share/doc/git/contrib/credential/libsecret

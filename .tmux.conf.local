@@ -3,6 +3,7 @@
 set -g @tpm_plugins '          \
   tmux-plugins/tpm             \
   tmux-plugins/tmux-resurrect  \
+  tmux-plugins/tmux-sensible   \
 '
 
 # -- windows & pane creation ---------------------------------------------------
@@ -216,7 +217,7 @@ tmux_conf_copy_to_os_clipboard=true
 # this is the place to override or undo settings
 
 # increase history size
-set -g history-limit 10000
+set -g history-limit 100000
 
 # replace C-b by C-a instead of using both prefixes
 set -gu prefix2
