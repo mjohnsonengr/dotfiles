@@ -1,0 +1,30 @@
+{
+  "hterm": {
+    "default": {
+      "background-color": "rgba(0, 43, 54, 1)",
+      "cursor-color": "rgba(147, 161, 161, 0.5)",
+      "color-palette-overrides": [
+        "#073642",
+        "#dc322f",
+        "#859900",
+        "#b58900",
+        "#268bd2",
+        "#d33682",
+        "#2aa198",
+        "#eee8d5",
+        "#002b36",
+        "#cb4b16",
+        "#586e75",
+        "#657b83",
+        "#839496",
+        "#6c71c4",
+        "#93a1a1",
+        "#fdf6e3"
+      ],
+      "font-family": "\"Source Code Pro\", \"DejaVu Sans Mono\", \"Noto Sans Mono\", \"Everson Mono\", FreeMono, Menlo, Terminal, monospace",
+      "foreground-color": "rgba(147, 161, 161, 1)",
+      "meta-sends-escape": false,
+      "user-css": "https://cdn.jsdelivr.net/gh/wernight/powerline-web-fonts@ba4426cb0c0b05eb6cb342c7719776a41e1f2114/PowerlineFonts.css"
+    }
+  }
+}
