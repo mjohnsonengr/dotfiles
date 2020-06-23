@@ -15,7 +15,10 @@ endif
 inoremap jk <ESC>
 "inoremap kj <ESC>
 
+" make yy/cc and Y/C behave like dd and D line-wise.
+" dd deletes entire line, D deletes from here to end.
 noremap Y y$
+noremap C c$
 
 noremap <leader>p "+p
 noremap <leader>y "+y
