@@ -216,6 +216,9 @@ tmux_conf_copy_to_os_clipboard=true
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
 
+# use vi keys in copy mode
+set-window-option -g mode-keys vi
+
 # increase history size
 set -g history-limit 100000
 

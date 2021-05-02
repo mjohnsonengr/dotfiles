@@ -1,12 +1,12 @@
 # TODO: Evolve this into a full script I can run on a fresh debian install.
 
-sudo apt install git
+sudo apt install git python-is-python3
 mkdir src  # for git clones
 git clone https://github.com/philips/ghar.git src/ghar
 # TODO: ghar add
 git clone https://github.com/mjohnsonengr/dotfiles.git src/ghar/devel
 # TODO: ghar install seems to make links for directories; prefer to avoid that
-# in most cases.. Maybe should start with a script to createa directories I
+# in most cases.. Maybe should start with a script to create directories I
 # don't want as links.
 mkdir bin
 mkdir .config/Google
@@ -17,9 +17,14 @@ src/ghar/bin/ghar install
 # TODO: need to source others?
 
 # apt-get packages to install (alphabetical)
+apt-transport-https
 clipit
+curl
 fonts-powerline
+fzf
 git
+gnupg
+haskell-platform
 libsecret-1-0
 libsecret-1-dev
 mercurial
@@ -40,8 +45,8 @@ xclip
 # but I uninstalled feh, dunst and scrot?
 
 ## Install tools TODO: actual commands
-install xmonad or i3 & friends?
-install vim?
+# install xmonad or i3 & friends?
+# install vim?
 
 # Build libsecret
 cd /usr/share/doc/git/contrib/credential/libsecret
@@ -50,7 +55,7 @@ sudo make
 # Setup neovim
 # I think this is required: python3 -m pip install --user virtualenv
 # TODO: Make sure the below is correct (what is it installing it to?)
-python3 -m pip install wheel neovim
+python3 -m pip install wheel neovim pylint
 cd ~/.config/nvim
 mkdir bundle
 git clone https://github.com/VundleVim/Vundle.vim.git bundle/Vundle.vim
@@ -58,6 +63,8 @@ nvim -c 'PluginInstall'
 # Not currently using this plugin
 # cd ~/.config/nvim/bundle/LanguageClient-neovim
 # ./install.sh
+
+# Install Brave: brave.com/linux
 
 # IntelliJ, PyCharm
 snap install intellij-idea-community --classic
@@ -67,7 +74,7 @@ snap install pycharm-community --classic
 gnome-terminal: Profile Preferences # TODO: While here, fix other stuff?
 gedit: # TODO: ☰ > Preferences > Font & Colors?
 # gedit: https://github.com/altercation/solarized/tree/master/gedit
-xed: Edit > Preferences > Theme > Solarized Dark 
+xed: Edit > Preferences > Theme > Solarized Dark
 
 # Customize apps
 gnome-terminal:
@@ -96,5 +103,6 @@ timedatectl set-local-rtc 1
 ### For non-Google machine
 # sdkman
 curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 sdk install kotlin
 sdk install gradle
