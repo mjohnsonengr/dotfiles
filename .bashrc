@@ -124,6 +124,14 @@ export PATH=/opt/intellij-ce-stable/bin:$PATH
 export EDITOR=nvim
 export VISUAL=nvim
 
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/src
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+if [ -f ~/.local/bin/virtualenvwrapper.sh]
+    source ~/.local/bin/virtualenvwrapper.sh
+fi
+
 if [ -f ~/.local_config/local.bashrc ]; then
     . ~/.local_config/local.bashrc
 fi
