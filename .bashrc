@@ -128,7 +128,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/src
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-if [ -f ~/.local/bin/virtualenvwrapper.sh]
+if [ -f ~/.local/bin/virtualenvwrapper.sh ]; then
     source ~/.local/bin/virtualenvwrapper.sh
 fi
 
