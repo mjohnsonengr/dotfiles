@@ -1,7 +1,7 @@
 # TODO: Evolve this into a full script I can run on a fresh debian install.
 
 # Absolute first packages needed
-sudo apt install git python-is-python3
+sudo apt install git python-is-python3 zsh
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
