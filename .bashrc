@@ -119,6 +119,7 @@ fi
 
 # Intellij Stable at front of path
 export PATH=/opt/intellij-ce-stable/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 # EDITOR
 export EDITOR=nvim

@@ -19,15 +19,15 @@ mkdir .config/nvim
 src/ghar/bin/ghar install
 
 . .profile
-# TODO: need to source others?
+# TODO: need to source others? Or simply open zsh now?
 
 # apt-get packages to install (alphabetical)
 apt-transport-https
+autojump
 clipit
 curl
 fonts-powerline
 fzf
-git
 gnupg
 haskell-platform
 libsecret-1-0
@@ -43,6 +43,9 @@ snapd
 tmux
 tree
 xclip
+
+# TODO: zsh plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # TODO i3:
 # What even are these and which do I need?
