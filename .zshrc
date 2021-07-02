@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/mej/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -73,7 +73,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Change the file location because certain bash sessions truncate .bash_history file upon close.
 # http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
 export HISTFILE=~/.zsh_eternal_history
-# unlimited doesn'tn work on zsh
+# unlimited doesn't work on zsh
 # https://unix.stackexchange.com/q/273861
 export HISTSIZE=100000000
 export SAVEHIST=100000000
@@ -129,6 +129,9 @@ export PATH=/opt/intellij-ce-stable/bin:$PATH
 # Editor
 export EDITOR=nvim
 export VISUAL=nvim
+
+# dircolors
+eval `dircolors ~/.dircolors`
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
