@@ -24,12 +24,13 @@ src/ghar/bin/ghar install
 # apt-get packages to install (alphabetical)
 apt-transport-https
 autojump
+build-essential
 clipit
 curl
 fonts-powerline
 fzf
 gnupg
-haskell-platform
+# haskell-platform  # Use ghcup instead
 libsecret-1-0
 libsecret-1-dev
 mercurial
@@ -55,6 +56,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 ## Install tools TODO: actual commands
 # install xmonad or i3 & friends?
 # install vim?
+
+# git-crecord
+git clone https://github.com/andrewshadura/git-crecord.git
 
 # Build libsecret
 cd /usr/share/doc/git/contrib/credential/libsecret
@@ -114,3 +118,8 @@ curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 sdk install kotlin
 sdk install gradle
+
+
+### For Haskell/Plutus development:
+curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh  # from https://www.haskell.org/ghcup/
+curl -L https://nixos.org/nix/install | sh  # from https://nixos.org/download.html

@@ -23,3 +23,6 @@ alias vimalias="nv ~/.bash_aliases"
 alias sourcealias="source ~/.bash_aliases"
 alias vimpath="nv ~/.path_aliases"
 alias sourcepath="source ~/.path_aliases"
+
+# Haskell/Plutus shortcuts
+alias plutus-nix="cd ~/src/plutus; nix-shell"

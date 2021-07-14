@@ -133,6 +133,12 @@ export VISUAL=nvim
 # dircolors
 eval `dircolors ~/.dircolors`
 
+# direnv (for lorri)
+if command -v direnv &> /dev/null
+then
+  eval "$(direnv hook zsh)"
+fi
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -161,3 +167,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ -f "/home/mej/.ghcup/env" ] && source "/home/mej/.ghcup/env" # ghcup-env
+if [ -e /home/mej/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mej/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
