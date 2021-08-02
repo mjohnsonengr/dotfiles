@@ -14,11 +14,12 @@ git clone https://github.com/mjohnsonengr/dotfiles.git src/ghar/devel
 # in most cases.. Maybe should start with a script to create directories I
 # don't want as links.
 mkdir bin
-mkdir .config/Google
+mkdir .local/share/fonts
 mkdir .config/nvim
 src/ghar/bin/ghar install
 
 . .profile
+fc-cache
 # TODO: need to source others? Or simply open zsh now?
 
 # apt-get packages to install (alphabetical)
@@ -35,6 +36,7 @@ libsecret-1-0
 libsecret-1-dev
 mercurial
 neovim
+nodejs  # Best way to do this?
 openjdk-11-jdk
 openjdk-11-jre
 python3-pip
@@ -56,6 +58,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 ## Install tools TODO: actual commands
 # install xmonad or i3 & friends?
 # install vim?
+
+# upgrade npm
+sudo npm install npm -g
 
 # git-crecord
 git clone https://github.com/andrewshadura/git-crecord.git
