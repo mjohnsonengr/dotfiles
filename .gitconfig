@@ -7,3 +7,9 @@
 	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe
 [pull]
 	rebase = true
+
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
