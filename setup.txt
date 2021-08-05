@@ -6,6 +6,11 @@ sudo apt install git python-is-python3 zsh
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+#: zsh themes & plugins
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+
 mkdir src  # for git clones
 git clone https://github.com/philips/ghar.git src/ghar
 # TODO: ghar add
@@ -23,49 +28,46 @@ fc-cache
 # TODO: need to source others? Or simply open zsh now?
 
 # apt-get packages to install (alphabetical)
-apt-transport-https
-autojump
-build-essential
-clipit
-curl
-fonts-powerline
-fzf
-gnupg
-# haskell-platform  # Use ghcup instead
-libsecret-1-0
-libsecret-1-dev
-mercurial
-neovim
-nodejs  # Best way to do this?
-openjdk-11-jdk
-openjdk-11-jre
-python3-pip
-python3-neovim
-python3-setuptools
-snapd
-tmux
-tree
-xclip
+# NOTE: packages intentionally not installed:
+#   haskell-platform: use ghcup instead
+sudo apt update
+sudo apt install \
+  apt-transport-https \
+  autojump \
+  build-essential \
+  clipit \
+  curl \
+  fzf \
+  gnupg \
+  libsecret-1-0 \
+  libsecret-1-dev \
+  mercurial \
+  neovim \
+  nodejs \
+  openjdk-11-jdk \
+  openjdk-11-jre \
+  python3-pip \
+  python3-neovim \
+  python3-setuptools \
+  snapd \
+  tmux \
+  tree \
+  xclip
 
-# TODO: zsh plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-# TODO i3:
+# TODO i3: do I even use i3? not really right now
 # What even are these and which do I need?
 # i3, i3status, i3lock, dmenu, feh, xautolock, dunst, scrot
 # but I uninstalled feh, dunst and scrot?
-
-## Install tools TODO: actual commands
-# install xmonad or i3 & friends?
-# install vim?
 
 # upgrade npm
 sudo npm install npm -g
 
 # git-crecord
-git clone https://github.com/andrewshadura/git-crecord.git
+git clone https://github.com/andrewshadura/git-crecord.git src/git-crecord
+cd src/git-crecord
+./setup.py install
 
-# Build libsecret
+# Build libsecret (not on WSL or headless)
 cd /usr/share/doc/git/contrib/credential/libsecret
 sudo make
 
