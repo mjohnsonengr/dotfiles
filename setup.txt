@@ -3,9 +3,11 @@
 # Absolute first packages needed
 sudo apt install git python-is-python3 zsh
 
-# Set up ssh key
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-# Add contents of id_ed25519.pub as key on GitHub and test:
+# Set up ssh key (see https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
+ssh-keygen -t ed25519 -C "your_email@example.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+# Add contents of id_ed25519.pub as key on GitHub, then test:
 ssh -T git@github.com
 
 # Install oh-my-zsh
