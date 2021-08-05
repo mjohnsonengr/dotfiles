@@ -3,6 +3,11 @@
 # Absolute first packages needed
 sudo apt install git python-is-python3 zsh
 
+# Set up ssh key
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+# Add contents of id_ed25519.pub as key on GitHub and test:
+ssh -T git@github.com
+
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -10,22 +15,20 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-
 mkdir src  # for git clones
-git clone https://github.com/philips/ghar.git src/ghar
-# TODO: ghar add
-git clone https://github.com/mjohnsonengr/dotfiles.git src/ghar/devel
-# TODO: ghar install seems to make links for directories; prefer to avoid that
-# in most cases.. Maybe should start with a script to create directories I
-# don't want as links.
 mkdir bin
 mkdir .local/share/fonts
 mkdir .config/nvim
+
+# ghar
+# TODO: ghar add?
+# TODO: add way to check all ghar repos for unpushed changes periodically
+git clone https://github.com/philips/ghar.git src/ghar
+git clone git@github.com/mjohnsonengr/dotfiles.git src/ghar/devel
 src/ghar/bin/ghar install
 
-. .profile
 fc-cache
-# TODO: need to source others? Or simply open zsh now?
+zsh  # if not already open
 
 # apt-get packages to install (alphabetical)
 # NOTE: packages intentionally not installed:
@@ -39,8 +42,6 @@ sudo apt install \
   curl \
   fzf \
   gnupg \
-  libsecret-1-0 \
-  libsecret-1-dev \
   mercurial \
   neovim \
   nodejs \
@@ -54,11 +55,6 @@ sudo apt install \
   tree \
   xclip
 
-# TODO i3: do I even use i3? not really right now
-# What even are these and which do I need?
-# i3, i3status, i3lock, dmenu, feh, xautolock, dunst, scrot
-# but I uninstalled feh, dunst and scrot?
-
 # upgrade npm
 sudo npm install npm -g
 
@@ -66,10 +62,6 @@ sudo npm install npm -g
 git clone https://github.com/andrewshadura/git-crecord.git src/git-crecord
 cd src/git-crecord
 ./setup.py install
-
-# Build libsecret (not on WSL or headless)
-cd /usr/share/doc/git/contrib/credential/libsecret
-sudo make
 
 # Setup neovim
 # I think this is required: python3 -m pip install --user virtualenv
