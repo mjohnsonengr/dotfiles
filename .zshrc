@@ -56,6 +56,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
 
 # Intellij Stable at front of path
 export PATH=/opt/intellij-ce-stable/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 # Editor
 export EDITOR=nvim
@@ -68,6 +69,12 @@ eval `dircolors ~/.dircolors`
 if command -v direnv &> /dev/null
 then
   eval "$(direnv hook zsh)"
+fi
+
+# Setup fzf
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+if [[ -f /usr/share/doc/fzf/examples/completion.zsh ]]; then
+  source /usr/share/doc/fzf/examples/completion.zsh
 fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -86,12 +93,6 @@ fi
 
 if [ -f ~/.local_config/local.zshrc ]; then
     . ~/.local_config/local.zshrc
-fi
-
-# Setup fzf
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-if [[ -f /usr/share/doc/fzf/examples/completion.zsh ]]; then
-  source /usr/share/doc/fzf/examples/completion.zsh
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
