@@ -1,8 +1,12 @@
+# Make aliases work in xargs
+alias xargs='xargs '
+
 # Various shortcuts
 alias intellij="/opt/intellij-ce-stable/bin/idea.sh"
 alias nv=nvim
 alias term=gnome-terminal
 alias vimdiff='nvim -d'
+alias clipboard='xclip -sel clip'
 
 # ls aliases
 alias ll='ls -alF'

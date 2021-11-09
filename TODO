@@ -5,3 +5,4 @@
 * separate tmux powerline for work machine
 * bin/links -- folder in local ghar, linked in ~/bin/links and added to PATH.  Contains links to
     /google/... binaries.
+* tmux remote copy-paste: https://medium.com/hackernoon/tmux-in-practice-copy-text-from-remote-session-using-ssh-remote-tunnel-and-systemd-service-dd3c51bca1fa
