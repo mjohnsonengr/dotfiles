@@ -1,0 +1,10 @@
+# Aliases for core-affinity
+# Preserves 2 cores (paired hyper-threaded cores) for UI and other use.
+# Example usage: `alias blaze='core blaze'`
+export IGNORE_CORES=2
+export LASTCORE=$(lscpu -p | tail -n 1 | cut -d, -f 1)
+export LIST=$IGNORE_CORES-$(($LASTCORE / 2)),$(($LASTCORE / 2 + $IGNORE_CORES + 1))-$LASTCORE
+function core() {
+  taskset -c $LIST "$@"
+}
+compdef _precommand core

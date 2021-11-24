@@ -26,6 +26,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# autoload custom functions
+autoload -Uk core  # wrapper to preserve 2 physical cores for CPU-intense scripts
+
 # Eternal history.
 # ----------------
 # Some of this copied from bashrc with no idea if its needed here.
