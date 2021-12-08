@@ -51,6 +51,7 @@ sudo apt install \
   mercurial \
   neovim \
   nodejs \
+  npm \
   openjdk-11-jdk \
   openjdk-11-jre \
   python3-pip \
@@ -63,6 +64,7 @@ sudo apt install \
 
 # upgrade npm
 sudo npm install npm -g
+sudo npm install node -g
 
 # git-crecord
 git clone https://github.com/andrewshadura/git-crecord.git src/git-crecord
