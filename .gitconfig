@@ -13,3 +13,11 @@
   ci = commit
   st = status
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+
+[log]
+  date = relative
+
+[format]
+  pretty = format:%h %Cblue%ad%Creset %ae %Cgreen%s%Creset
+[pager]
+	log = false
