@@ -50,8 +50,6 @@ sudo apt install \
   lsb-release \
   mercurial \
   neovim \
-  nodejs \
-  npm \
   openjdk-11-jdk \
   openjdk-11-jre \
   python3-pip \
@@ -62,9 +60,12 @@ sudo apt install \
   tree \
   xclip
 
-# upgrade npm
-sudo npm install npm -g
-sudo npm install node -g
+# Install NVM, NPM and NodeJS
+# check https://github.com/nvm-sh/nvm#installing-and-updating for newer version
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+source ~/.zshrc
+# nvm install --lts
+nvm install node
 
 # git-crecord
 git clone https://github.com/andrewshadura/git-crecord.git src/git-crecord
