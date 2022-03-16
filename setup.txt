@@ -142,3 +142,7 @@ docker run hello-world
 ### For Haskell/Plutus development:
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh  # from https://www.haskell.org/ghcup/
 curl -L https://nixos.org/nix/install | sh  # from https://nixos.org/download.html
+
+### For SSH'ing into WSL2:
+# Make sure SSH server is hardened (disable password auth, disable root, only allow one user
+# Check out wsl2-network.ps1 https://gist.github.com/daehahn/497fa04c0156b1a762c70ff3f9f7edae?WT.mc_id=-blog-scottha
