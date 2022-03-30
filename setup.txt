@@ -12,8 +12,8 @@ ssh -T git@github.com
 
 mkdir src  # for git clones
 mkdir bin
-mkdir .local/share/fonts
-mkdir .config/nvim
+mkdir -p .local/share/fonts
+mkdir -p .config/nvim/bundle
 
 # ghar
 # TODO: ghar add?
@@ -71,6 +71,7 @@ nvm install node
 git clone https://github.com/andrewshadura/git-crecord.git src/git-crecord
 cd src/git-crecord
 ./setup.py install
+cd ~
 
 # Setup neovim
 # I think this is required: python3 -m pip install --user virtualenv
@@ -78,7 +79,7 @@ cd src/git-crecord
 python3 -m pip install wheel neovim pylint
 cd ~/.config/nvim
 mkdir bundle
-git clone https://github.com/VundleVim/Vundle.vim.git bundle/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
 nvim -c 'PluginInstall'
 # Not currently using this plugin
 # cd ~/.config/nvim/bundle/LanguageClient-neovim
