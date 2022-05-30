@@ -21,3 +21,5 @@
   pretty = format:%h %Cblue%ad%Creset %ae %Cgreen%s%Creset
 [pager]
 	log = false
+[init]
+	defaultBranch = main
