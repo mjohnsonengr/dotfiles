@@ -55,6 +55,7 @@ sudo apt install \
   neovim \
   openjdk-11-jdk \
   openjdk-11-jre \
+  postgresql \
   python3-pip \
   python3-neovim \
   python3-setuptools \
@@ -145,6 +146,16 @@ sdk install gradle
 # gng/gw (shortcut for ./gradlew) (https://gng.dsun.org/)
 brew tap gdubw/gng
 brew install gng
+
+### Heroku
+sudo snap install --classic heroku
+# alternatively on Chromebook/Crostini
+# curl https://cli-assets.heroku.com/install.sh | sh
+# edit ~/.netrc w/ API key
+
+# for postgresql, may need
+# sudo -u postgres createuser -s $(whoami); createdb $(whoami)
+# See https://stackoverflow.com/a/38444152/1405720
 
 ### Docker
  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
