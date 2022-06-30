@@ -7,7 +7,7 @@ set visualbell
 " TODO more settings here?
 "
 " Enable any local modifications
-if filereadable($HOME . '/.local_config/localidea.vim')
+if filereadable(expand('~/.local_config/localidea.vim'))
   source ~/.local_config/localidea.vim
 endif
 
@@ -38,3 +38,4 @@ map <C-a> <Nop>
 " TODO Ideas:
 " https://github.com/Valloric/dotfiles/blob/master/intellij/ideavimrc
 " https://github.com/beloglazov/vimrc/blob/master/.ideavimrc
+set ideajoin
