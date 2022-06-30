@@ -5,29 +5,33 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+if [ -f ~/.local_config/local.omz ]; then
+    . ~/.local_config/local.omz
+else
+  # Path to your oh-my-zsh installation.
+  export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+  # Set name of the theme to load
+  # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+  ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Timestamp format in history file. See 'man strftime' for details.
-HIST_STAMPS="yyyy-mm-dd"
+  # Timestamp format in history file. See 'man strftime' for details.
+  HIST_STAMPS="yyyy-mm-dd"
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(autojump git zsh-autosuggestions zsh-syntax-highlighting keychain)
+  # Which plugins would you like to load?
+  # Standard plugins can be found in $ZSH/plugins/
+  # Custom plugins may be added to $ZSH_CUSTOM/plugins/
+  # Example format: plugins=(rails git textmate ruby lighthouse)
+  # Add wisely, as too many plugins slow down shell startup.
+  plugins=(autojump git zsh-autosuggestions zsh-syntax-highlighting keychain)
 
-zstyle :omz:plugins:keychain agents ssh
-zstyle :omz:plugins:keychain identities id_ed25519
-# TODO: later, uncomment this; want to remind myself that keychain is happening for now.
-#zstyle :omz:plugins:keychain options --quiet
+  zstyle :omz:plugins:keychain agents ssh
+  zstyle :omz:plugins:keychain identities id_ed25519
+  # TODO: later, uncomment this; want to remind myself that keychain is happening for now.
+  #zstyle :omz:plugins:keychain options --quiet
 
-source $ZSH/oh-my-zsh.sh
+  source $ZSH/oh-my-zsh.sh
+fi
 
 # User configuration
 
