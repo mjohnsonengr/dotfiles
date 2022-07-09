@@ -58,7 +58,8 @@ sudo apt install \
   snapd \
   tmux \
   tree \
-  xclip
+  xclip \
+  zip
 
 # Install NVM, NPM and NodeJS
 # check https://github.com/nvm-sh/nvm#installing-and-updating for newer version
@@ -128,11 +129,18 @@ timedatectl set-local-rtc 1
 
 
 ### For non-Google machine
+# brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 # sdkman
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 sdk install kotlin
 sdk install gradle
+
+# gng/gw (shortcut for ./gradlew) (https://gng.dsun.org/)
+brew tap gdubw/gng
+brew install gng
 
 ### Docker
  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
