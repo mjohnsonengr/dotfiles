@@ -39,6 +39,7 @@ zsh  # if not already open
 #   haskell-platform: use ghcup instead
 sudo apt update
 sudo apt install \
+  apt-listchanges \
   apt-transport-https \
   autojump \
   build-essential \
@@ -49,6 +50,8 @@ sudo apt install \
   gnupg \
   lsb-release \
   mercurial \
+  msmtp \
+  msmtp-mta \
   neovim \
   openjdk-11-jdk \
   openjdk-11-jre \
@@ -58,6 +61,7 @@ sudo apt install \
   snapd \
   tmux \
   tree \
+  unattended-upgrades \
   xclip \
   zip
 
@@ -161,3 +165,13 @@ curl -L https://nixos.org/nix/install | sh  # from https://nixos.org/download.ht
 ### For SSH'ing into WSL2:
 # Make sure SSH server is hardened (disable password auth, disable root, only allow one user
 # Check out wsl2-network.ps1 https://gist.github.com/daehahn/497fa04c0156b1a762c70ff3f9f7edae?WT.mc_id=-blog-scottha
+
+### msmtp/sendmail and unattended-upgrade
+sudo cp .msmtprc /etc/msmtprc
+# Make a Gmail app password for this machine and use below
+sudo echo "machine smtp.gmail.com login sys@mej.dev password PASSWORD" >> /etc/netrc
+sudo vim /etc/apt/apt.conf.d/50unattended-upgrades
+# uncomment `${distro_id}:${distro_codename}-updates`
+# uncomment `Unattended-Upgrade::Mail "root";` and replace with email address
+# uncomment `Unattended-Upgrade::MailReport "on-change";`
+
