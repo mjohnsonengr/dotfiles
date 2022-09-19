@@ -10,7 +10,7 @@ ssh-add ~/.ssh/id_ed25519
 # Add contents of id_ed25519.pub as key on GitHub, then test:
 ssh -T git@github.com
 
-mkdir src  # for git clones
+mkdir -p src/cloned  # for git clones
 mkdir bin
 mkdir -p .local/share/fonts
 mkdir -p .config/nvim/bundle
@@ -74,7 +74,7 @@ source ~/.zshrc
 nvm install node
 
 # git-crecord
-git clone https://github.com/andrewshadura/git-crecord.git src/git-crecord
+git clone https://github.com/andrewshadura/git-crecord.git src/cloned/git-crecord
 cd src/git-crecord
 ./setup.py install
 cd ~
