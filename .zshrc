@@ -43,7 +43,7 @@ export SAVEHIST=100000000
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 unsetopt INC_APPEND_HISTORY      # Don't incrementally write to history file.
-unsetopt SHARE_HISTORY           # Don't share (live-sync) history between sessions
+setopt SHARE_HISTORY             # Share (live-sync) history between sessions.
 setopt APPEND_HISTORY            # Write to the history file when the shell exits.
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
 setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.

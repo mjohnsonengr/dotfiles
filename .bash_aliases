@@ -7,6 +7,7 @@ alias nv=nvim
 alias term=gnome-terminal
 alias vimdiff='nvim -d'
 alias clipboard='xclip -sel clip'
+alias r='fc -s'  # `r cc` re-runs the last command that begins with "cc"
 
 # ls aliases
 alias ll='ls -alF'
