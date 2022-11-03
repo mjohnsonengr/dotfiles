@@ -59,6 +59,7 @@ sudo apt install \
   python3-pip \
   python3-neovim \
   python3-setuptools \
+  ripgrep \
   snapd \
   tmux \
   tree \

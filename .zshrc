@@ -1,3 +1,21 @@
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Timestamp format in history file. See 'man strftime' for details.
+HIST_STAMPS="yyyy-mm-dd"
+
 if [ -f ~/.local_config/local.omz ]; then
     . ~/.local_config/local.omz
 else
@@ -8,9 +26,6 @@ else
   # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
   ZSH_THEME="powerlevel10k/powerlevel10k"
 
-  # Timestamp format in history file. See 'man strftime' for details.
-  HIST_STAMPS="yyyy-mm-dd"
-
   # Which plugins would you like to load?
   # Standard plugins can be found in $ZSH/plugins/
   # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -18,6 +33,7 @@ else
   # Add wisely, as too many plugins slow down shell startup.
   plugins=(autojump git zsh-autosuggestions zsh-syntax-highlighting keychain)
 
+  zstyle ':omz:update' mode auto      # update automatically without asking
   zstyle :omz:plugins:keychain agents ssh
   zstyle :omz:plugins:keychain identities id_ed25519
   zstyle :omz:plugins:keychain options --quiet
@@ -105,6 +121,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.local_config/local.p10k.zsh ]] || source ~/.local_config/local.p10k.zsh ]]
+
 [ -f "/home/mej/.ghcup/env" ] && source "/home/mej/.ghcup/env" # ghcup-env
 if [ -e /home/mej/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mej/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
