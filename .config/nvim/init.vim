@@ -14,7 +14,7 @@ call vundle#begin('~/.config/nvim/bundle')
 
 Plugin 'VundleVim/Vundle.vim'  " let Vundle manage Vundle, required
 
-Plugin 'altercation/vim-colors-solarized'   " Color theme
+"Plugin 'altercation/vim-colors-solarized'   " Color theme
 Plugin 'vim-airline/vim-airline'            " Airline status bar
 Plugin 'vim-airline/vim-airline-themes'     " Airline themes
 
@@ -53,7 +53,7 @@ Plugin 'neovimhaskell/haskell-vim'      " Syntax highlighting and indentation
 " ---- Plugin settings ----
 
 " airline
-let g:airline_theme='solarized'
+"let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1  " tab line
 
@@ -85,7 +85,7 @@ filetype plugin indent on
 syntax on
 
 " ---- Settings ----
-colorscheme solarized
+"colorscheme solarized
 set background=dark
 set backspace=indent,start,eol  " Can backspace over indent, start of insert, or eol
 set completeopt=noinsert,menuone,noselect,preview " Options needed for ncm2

@@ -104,11 +104,15 @@ nvim -c 'PluginInstall'
 snap install intellij-idea-community --classic
 snap install pycharm-community --classic
 
-## Solarized everywhere
+## Color-scheme: Solarized everywhere
 gnome-terminal: Profile Preferences # TODO: While here, fix other stuff?
 gedit: # TODO: ☰ > Preferences > Font & Colors?
 # gedit: https://github.com/altercation/solarized/tree/master/gedit
 xed: Edit > Preferences > Theme > Solarized Dark
+
+## Color-scheme: Obsidian
+Windows Terminal: https://windowsterminalthemes.dev/
+ChromeOS SSH: chrome-untrusted://terminal/html/nassh_preferences_editor.html
 
 # Customize apps
 gnome-terminal:

@@ -8,7 +8,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'  " let Vundle manage Vundle, required
 
-Plugin 'altercation/vim-colors-solarized'  " Color theme
+"Plugin 'altercation/vim-colors-solarized'  " Color theme
 
 " Plugins for writing 
 Plugin 'reedes/vim-pencil'      " Super-powered writing things
@@ -42,7 +42,7 @@ syntax on
 augroup myvimrc
 autocmd!
 
-colorscheme solarized
+"colorscheme solarized
 
 set background=dark
 set expandtab       " Tab key inserts spaces instead of tab characters.
