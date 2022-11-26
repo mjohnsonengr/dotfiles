@@ -1,18 +1,19 @@
 # This is Git's per-user configuration file.
 [user]
-	name = Marcus Johnson
-	email = mejohnson93@gmail.com
+  name = Marcus Johnson
+  email = mejohnson93@gmail.com
 [credential]
-        helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
-	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe
+  helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+  helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe
 [pull]
-	rebase = true
+  rebase = true
 
 [alias]
   co = checkout
   ci = commit
   st = status
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  lg = log --color --graph --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'
 
 [log]
   date = relative
@@ -20,6 +21,6 @@
 [format]
   pretty = format:%h %Cblue%ad%Creset %ae %Cgreen%s%Creset
 [pager]
-	log = false
+  log = false
 [init]
-	defaultBranch = main
+  defaultBranch = main
