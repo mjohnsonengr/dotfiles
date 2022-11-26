@@ -60,11 +60,13 @@ sudo apt install \
   python3-neovim \
   python3-setuptools \
   ripgrep \
+  rlwrap \
   snapd \
   tmux \
   tree \
   unattended-upgrades \
   xclip \
+  xsel \
   zip
 
 # Install NVM, NPM and NodeJS
