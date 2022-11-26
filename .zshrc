@@ -135,3 +135,9 @@ if [ -f '/home/mej/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mej/opt/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/mej/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mej/opt/google-cloud-sdk/completion.zsh.inc'; fi
+
+# The next line enables shell command completion for kubectl
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+# GKE gcloud auth plugin for kubectl
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
