@@ -1,0 +1,5 @@
+# Advent of code download script
+# (put session cookie value in ~/.aoc_session)
+function aoc() {
+  curl "https://adventofcode.com/$1/day/$2/input" -H "Cookie: session=$(cat ~/.aoc_session)"
+}
