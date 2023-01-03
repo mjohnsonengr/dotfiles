@@ -360,6 +360,9 @@ tmux_conf_copy_to_os_clipboard=false
 # move status line to top
 set -g status-position top
 
+# decrease repeat timeout
+set -sg repeat-time 50
+
 
 # -- tpm -----------------------------------------------------------------------
 
