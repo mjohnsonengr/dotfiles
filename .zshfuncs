@@ -1,0 +1,8 @@
+function hex2dec() { echo $(( 16#$1 )) }
+function dec2hex() { echo $(( [##16]$1 )) }
+
+function cdtmp() {
+  builtin cd $(mktemp -d "/tmp/$USER-${1:+$1-}XXXXXX")
+  builtin pwd
+}
+

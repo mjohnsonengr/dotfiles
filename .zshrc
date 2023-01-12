@@ -45,6 +45,10 @@ fi
 
 # autoload custom functions
 autoload -Uk core  # wrapper to preserve 2 physical cores for CPU-intense scripts
+autoload -Uk aoc   # script to download Advent of Code input files
+
+# Source other custom functions
+source ~/.zshfuncs
 
 # Eternal history.
 # ----------------

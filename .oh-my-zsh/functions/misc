@@ -1,2 +1,0 @@
-function hex2dec() { echo $(( 16#$1 )) }
-function dec2hex() { echo $(( [##16]$1 )) }
