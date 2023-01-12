@@ -42,12 +42,13 @@ sudo apt install \
   apt-listchanges \
   apt-transport-https \
   autojump \
+  bat \                 # batcat -- cat with syntax highlighting
   build-essential \
   ca-certificates \
   clipit \
   curl \
-  fd-find \  # fd: fast Rust version of find
-  fzf \      # fzf: fuzzy-finder (super useful)
+  fd-find \             # fd: fast Rust version of find
+  fzf \                 # fzf: fuzzy-finder (super useful)
   gnupg \
   lsb-release \
   mercurial \
@@ -60,7 +61,7 @@ sudo apt install \
   python3-pip \
   python3-neovim \
   python3-setuptools \
-  ripgrep \  # rg: better version of grep
+  ripgrep \             # rg: better version of grep
   rlwrap \
   snapd \
   tmux \

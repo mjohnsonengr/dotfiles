@@ -82,6 +82,13 @@ export PATH=$HOME/bin:$PATH
 export EDITOR=nvim
 export VISUAL=nvim
 
+# Batman -- Debian installs `bat` as `batcat`
+if hash batcat; then
+  alias bat=batcat
+  alias cat="bat --paging=never"
+  export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+fi
+
 # dircolors
 eval `dircolors ~/.dircolors`
 
