@@ -399,11 +399,15 @@ tmux_conf_uninstall_plugins_on_reload=true
 
 # to enable a plugin, use the 'set -g @plugin' syntax:
 # visit https://github.com/tmux-plugins for available plugins
-#set -g @plugin 'tmux-plugins/tmux-copycat'
+set -g @plugin 'laktak/extrakto'
+set -g @plugin 'tmux-plugins/tmux-copycat'
 #set -g @plugin 'tmux-plugins/tmux-cpu'
 #set -g @plugin 'tmux-plugins/tmux-resurrect'
 #set -g @plugin 'tmux-plugins/tmux-continuum'
 #set -g @continuum-restore 'on'
+
+# https://github.com/laktak/extrakto/wiki/Remote-Copy-via-OSC52
+set -g @extrakto_clip_tool_run "tmux_osc52"
 
 
 # -- custom variables ----------------------------------------------------------
