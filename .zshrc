@@ -152,3 +152,11 @@ if [ -f '/home/mej/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mej
 
 # GKE gcloud auth plugin for kubectl
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+# pyenv
+if [ -e "$HOME/.pyenv" ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi

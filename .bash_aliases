@@ -20,8 +20,8 @@ alias tree='tree -C'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # tmux
-alias tn="tmux new-session -t"
-alias ta="tmux attach -t"
+alias tn="tmux -u new-session -t"
+alias ta="tmux -u attach -t"
 alias tls="tmux list-s"
 
 # Config file shortcuts

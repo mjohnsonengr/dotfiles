@@ -146,6 +146,14 @@ timedatectl set-local-rtc 1
 # brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+# pyenv
+
+curl https://pyenv.run | bash
+sudo apt install zlib1g zlib1g-dev libssl-dev libbz2-dev libsqlite3-dev lzma \
+  liblzma-dev libreadline-dev
+pyenv install 2.7.18
+pyenv install 3.11.1
+
 # sdkman
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
