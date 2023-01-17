@@ -39,8 +39,8 @@ zsh  # if not already open
 #   haskell-platform: use ghcup instead
 sudo apt update
 sudo apt install \
-  apt-listchanges \     # TODO: for unattended-upgrades?
-  apt-transport-https \ # TODO: for unattended-upgrades?
+  apt-listchanges \     # TODO: ??
+  apt-transport-https \ # for unattended-upgrades
   autojump \            # `j` to jump directories
   bat \                 # batcat -- cat with syntax highlighting
   build-essential \
@@ -55,7 +55,7 @@ sudo apt install \
   lsb-release \         # TODO: ??
   mercurial \
   msmtp \               # for unattended-upgrades
-  msmtp-mta \           # for unattended-upgrades
+  msmtp-mta \           # creates sendmail alias to msmtp
   neovim \
   postgresql \
   python3-pip \
