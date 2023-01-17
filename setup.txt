@@ -120,6 +120,7 @@ sudo apt install zlib1g zlib1g-dev libssl-dev libbz2-dev libsqlite3-dev lzma \
   liblzma-dev libreadline-dev
 pyenv install 2.7.18
 pyenv install 3.11.1
+pyenv install anaconda3-2022.10
 
 ### Java
 sudo apt install openjdk-17-jdk openjdk-17-jre
@@ -181,7 +182,7 @@ curl -L https://nixos.org/nix/install | sh  # from https://nixos.org/download.ht
 # Check out wsl2-network.ps1 https://gist.github.com/daehahn/497fa04c0156b1a762c70ff3f9f7edae?WT.mc_id=-blog-scottha
 
 ### msmtp/sendmail and unattended-upgrade
-sudo cp .msmtprc /etc/msmtprc
+sudo cp .templates/msmtprc /etc/msmtprc
 # Make a Gmail app password for this machine and use below
 sudo echo "machine smtp.gmail.com login sys@mej.dev password PASSWORD" >> /etc/netrc
 sudo vim /etc/apt/apt.conf.d/50unattended-upgrades
