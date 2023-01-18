@@ -50,6 +50,9 @@ Plugin 'plasticboy/vim-markdown'        " Markdown syntax highlighting, extensio
 " Plugins for Haskell/Cabal
 Plugin 'neovimhaskell/haskell-vim'      " Syntax highlighting and indentation
 
+" Plugin for kitty
+Plugin 'fladson/vim-kitty'
+
 " ---- Plugin settings ----
 
 " airline
