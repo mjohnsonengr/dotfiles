@@ -357,6 +357,18 @@ tmux_conf_copy_to_os_clipboard=false
 # if you don't want Oh my tmux! to alter a binding, use #!important
 # bind v new-window -c #{pane_current_path} #!important
 
+# URL Search
+bind C-u copy-mode \; send -X search-backward "(https?://|git@|git://|ssh://|ftp://|file:///)[[:alnum:]?=%/_.:,;~@!#$&()*+-]*"
+
+# Number Search -- must skip short numbers in clock and hashes
+bind C-n copy-mode \; send -X search-backward "[0-9]{8,}"
+
+# Target search
+bind C-t copy-mode \; send -X search-backward "//([A-Za-z0-9_\-]+/)*[A-Za-z0-9_\-]+:[^\s]+"
+
+# Fig hash Search
+bind M-h copy-mode \; send -X search-backward "[a-f0-9]{4,}"
+
 # move status line to top
 set -g status-position top
 
@@ -400,7 +412,7 @@ tmux_conf_uninstall_plugins_on_reload=true
 # to enable a plugin, use the 'set -g @plugin' syntax:
 # visit https://github.com/tmux-plugins for available plugins
 set -g @plugin 'laktak/extrakto'
-set -g @plugin 'tmux-plugins/tmux-copycat'
+#set -g @plugin 'tmux-plugins/tmux-copycat'
 #set -g @plugin 'tmux-plugins/tmux-cpu'
 #set -g @plugin 'tmux-plugins/tmux-resurrect'
 #set -g @plugin 'tmux-plugins/tmux-continuum'
