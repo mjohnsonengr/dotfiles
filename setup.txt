@@ -182,6 +182,7 @@ curl -L https://nixos.org/nix/install | sh  # from https://nixos.org/download.ht
 # Check out wsl2-network.ps1 https://gist.github.com/daehahn/497fa04c0156b1a762c70ff3f9f7edae?WT.mc_id=-blog-scottha
 
 ### msmtp/sendmail and unattended-upgrade
+# See https://wiki.debian.org/UnattendedUpgrades
 sudo cp .templates/msmtprc /etc/msmtprc
 # Make a Gmail app password for this machine and use below
 sudo echo "machine smtp.gmail.com login sys@mej.dev password PASSWORD" >> /etc/netrc
@@ -190,3 +191,11 @@ sudo vim /etc/apt/apt.conf.d/50unattended-upgrades
 # uncomment `Unattended-Upgrade::Mail "root";` and replace with email address
 # uncomment `Unattended-Upgrade::MailReport "on-change";`
 
+# Add to /etc/apt/apt.conf.d/20auto-upgrades:
+dpkg-reconfigure -f noninteractive unattended-upgrades
+
+# Add email updates
+# edit /etc/apt/listchanges.conf
+# set frontend=mail
+# set email address
+# set which=news
