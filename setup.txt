@@ -52,6 +52,7 @@ sudo apt install \
   git-crecord \         # Interactive git chunk/file selection
   gnupg \
   keychain \            # Manage ssh-agent, prevent entering SSH key pw too much
+  libicu-dev \          # needed for pip installing wheel?
   lsb-release \         # TODO: ??
   mercurial \
   msmtp \               # for unattended-upgrades
@@ -77,6 +78,14 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 source ~/.zshrc
 # nvm install --lts
 nvm install node
+
+# Install Cargo (https://rustup.rs)
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+cargo install tealdeer  # tldr.sh
+
+# cheat.sh
+curl https://cht.sh/:cht.sh > ~/bin/cht.sh
+cht.sh --standalone-install
 
 # github CLI: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg

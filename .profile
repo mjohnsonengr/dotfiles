@@ -45,3 +45,4 @@ if which ruby >/dev/null && which gem >/dev/null; then
 fi
 
 eval `dircolors "$HOME/.dircolors"`
+. "$HOME/.cargo/env"
