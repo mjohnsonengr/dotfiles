@@ -93,6 +93,11 @@ if hash batcat; then
   export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 fi
 
+# fd -- Debian installs `fd` as `fdfind`
+if hash fdfind; then
+  alias fd=fdfind
+fi
+
 # dircolors
 eval `dircolors ~/.dircolors`
 
@@ -159,4 +164,10 @@ if [ -e "$HOME/.pyenv" ]; then
   command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
+fi
+
+# command-not-found
+# enable command-not-found if installed
+if [ -f /etc/zsh_command_not_found ]; then
+    . /etc/zsh_command_not_found
 fi
