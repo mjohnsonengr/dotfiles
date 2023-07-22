@@ -1,5 +1,7 @@
 # TODO: Evolve this into a full script I can run on a fresh debian install.
 
+# Make sure primary user can run as sudo first by running `adduser username sudo` as root, then loggin out/in
+
 # Absolute first packages needed
 sudo apt install git python-is-python3 zsh
 
