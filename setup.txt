@@ -1,6 +1,10 @@
 # TODO: Evolve this into a full script I can run on a fresh debian install.
 
-# Make sure primary user can run as sudo first by running `adduser username sudo` as root, then loggin out/in
+# Make sure primary user can run as sudo first by running `adduser username sudo` as root, then logging out/in
+# Set up Tailscale:
+sudo apt install curl
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up --ssh
 
 # Absolute first packages needed
 sudo apt install git python-is-python3 zsh
