@@ -65,6 +65,7 @@ sudo apt install \
   msmtp \               # for unattended-upgrades
   msmtp-mta \           # creates sendmail alias to msmtp
   neovim \
+  pkg-config \
   postgresql \
   python3-pip \
   python3-neovim \
@@ -103,7 +104,7 @@ sudo apt install gh
 
 # Setup neovim
 # I think this is required: python3 -m pip install --user virtualenv
-# TODO: Make sure the below is correct (what is it installing it to?)
+# TODO: Maybe this isn't needed?  apt install python3-neovim should be enough
 python3 -m pip install wheel neovim pylint
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
 nvim -c 'PluginInstall'
@@ -136,11 +137,15 @@ curl https://pyenv.run | bash
 sudo apt install zlib1g zlib1g-dev libssl-dev libbz2-dev libsqlite3-dev lzma \
   liblzma-dev libreadline-dev libffi-dev tk-dev
 pyenv install 2.7.18
-pyenv install 3.11.1
-pyenv install anaconda3-2022.10
+pyenv install 3.11.4
+pyenv install miniconda3-4.7.12
 
-### Java
-sudo apt install openjdk-17-jdk openjdk-17-jre
+### Java -- https://adoptium.net/installation/linux/
+wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | sudo tee /etc/apt/keyrings/adoptium.asc
+echo "deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | sudo tee /etc/apt/sources.list.d/adoptium.list
+sudo apt update
+sudo apt install temurin-17-jdk
+# TODO: Next LTS is 21 in Sept 2023
 
 ### sdkman
 curl -s "https://get.sdkman.io" | bash
@@ -202,7 +207,7 @@ curl -L https://nixos.org/nix/install | sh  # from https://nixos.org/download.ht
 # See https://wiki.debian.org/UnattendedUpgrades
 sudo cp .templates/msmtprc /etc/msmtprc
 # Make a Gmail app password for this machine and use below
-sudo echo "machine smtp.gmail.com login sys@mej.dev password PASSWORD" >> /etc/netrc
+echo "machine smtp.gmail.com login sys@mej.dev password PASSWORD" | sudo tee -a /etc/netrc
 sudo vim /etc/apt/apt.conf.d/50unattended-upgrades
 # uncomment `${distro_id}:${distro_codename}-updates`
 # uncomment `Unattended-Upgrade::Mail "root";` and replace with email address
