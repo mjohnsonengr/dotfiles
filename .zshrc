@@ -31,7 +31,7 @@ else
   # Custom plugins may be added to $ZSH_CUSTOM/plugins/
   # Example format: plugins=(rails git textmate ruby lighthouse)
   # Add wisely, as too many plugins slow down shell startup.
-  plugins=(autojump git zsh-autosuggestions zsh-syntax-highlighting keychain)
+  plugins=(autojump git zsh-autosuggestions zsh-syntax-highlighting keychain command-not-found)
 
   zstyle ':omz:update' mode auto      # update automatically without asking
   zstyle :omz:plugins:keychain agents ssh

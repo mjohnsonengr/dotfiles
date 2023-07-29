@@ -53,6 +53,7 @@ sudo apt install \
   build-essential \
   ca-certificates \     # TODO: need?
   clipit \              # TODO: only host machines?
+  command-not-found \
   curl \
   fd-find \             # fd: fast Rust version of find
   fzf \                 # fzf: fuzzy-finder (super useful)
