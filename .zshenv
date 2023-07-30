@@ -4,4 +4,6 @@
 if [ -f ~/.local_config/local.zshenv ]; then
   source ~/.local_config/local.zshenv
 fi
-. "$HOME/.cargo/env"
+if [ -f $HOME/.cargo/env ]; then
+  . "$HOME/.cargo/env"
+fi
