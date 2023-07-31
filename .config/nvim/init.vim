@@ -23,6 +23,7 @@ Plugin 'roxma/nvim-yarp'                " Required for ncm2/ncm2
 
 " General plugins
 Plugin 'roxma/vim-tmux-clipboard'       " tmux clipboard integration
+Plugin 'mg979/vim-visual-multi'         " multicursor
 
 " Plugins for writing
 Plugin 'junegunn/goyo.vim'              " Full screen writing mode
