@@ -84,7 +84,7 @@ sudo apt install \
 
 # Install NVM, NPM and NodeJS
 # check https://github.com/nvm-sh/nvm#installing-and-updating for newer version
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 source ~/.zshrc
 # nvm install --lts
 nvm install node
