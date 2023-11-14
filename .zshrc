@@ -92,6 +92,7 @@ if hash batcat; then
   alias bat=batcat
   alias cat="bat --paging=never"
   export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+  export MANROFFOPT="-c"
 fi
 
 # fd -- Debian installs `fd` as `fdfind`
