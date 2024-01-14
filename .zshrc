@@ -32,7 +32,7 @@ else
   # Custom plugins may be added to $ZSH_CUSTOM/plugins/
   # Example format: plugins=(rails git textmate ruby lighthouse)
   # Add wisely, as too many plugins slow down shell startup.
-  plugins=(autojump git zsh-autosuggestions zsh-syntax-highlighting keychain command-not-found)
+  plugins=(git zsh-autosuggestions zsh-syntax-highlighting keychain command-not-found)
 
   zstyle ':omz:update' mode auto      # update automatically without asking
   zstyle :omz:plugins:keychain agents ssh
@@ -168,8 +168,18 @@ if [ -e "$HOME/.pyenv" ]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+# zoxide
+if hash zoxide; then
+  eval "$(zoxide init zsh)"
+fi
+
 # command-not-found
+# TODO: Don't think this is needed with command-not-found plugin?
 # enable command-not-found if installed
 if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
+fi
+
+if hash broot; then
+  source /home/mej/.config/broot/launcher/bash/br
 fi

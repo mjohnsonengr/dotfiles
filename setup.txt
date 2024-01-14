@@ -48,7 +48,6 @@ sudo apt update
 sudo apt install \
   apt-listchanges \     # TODO: ??
   apt-transport-https \ # for unattended-upgrades
-  autojump \            # `j` to jump directories
   bat \                 # batcat -- cat with syntax highlighting
   build-essential \
   ca-certificates \     # TODO: need?
@@ -60,6 +59,7 @@ sudo apt install \
   git-crecord \         # Interactive git chunk/file selection
   gnupg \
   keychain \            # Manage ssh-agent, prevent entering SSH key pw too much
+  lf \                  # file manager
   libicu-dev \          # needed for pip installing wheel?
   lsb-release \         # TODO: ??
   mercurial \
@@ -82,6 +82,9 @@ sudo apt install \
   xsel \
   zip
 
+# Install zoxide
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+
 # Install NVM, NPM and NodeJS
 # check https://github.com/nvm-sh/nvm#installing-and-updating for newer version
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
@@ -92,6 +95,7 @@ nvm install node
 # Install Cargo (https://rustup.rs)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 cargo install tealdeer  # tldr.sh
+cargo install broot # br
 
 # cheat.sh
 curl https://cht.sh/:cht.sh > ~/bin/cht.sh
