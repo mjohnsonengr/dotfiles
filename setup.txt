@@ -59,7 +59,7 @@ sudo apt install \
   git-crecord \         # Interactive git chunk/file selection
   gnupg \
   keychain \            # Manage ssh-agent, prevent entering SSH key pw too much
-  lf \                  # file manager
+  lf \                  # file manager (sometimes lfm)
   libicu-dev \          # needed for pip installing wheel?
   lsb-release \         # TODO: ??
   mercurial \
