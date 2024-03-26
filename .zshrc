@@ -181,5 +181,5 @@ if [ -f /etc/zsh_command_not_found ]; then
 fi
 
 if hash broot; then
-  source /home/mej/.config/broot/launcher/bash/br
+  source ~/.config/broot/launcher/bash/br
 fi
