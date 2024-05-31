@@ -217,6 +217,8 @@ sudo vim /etc/apt/apt.conf.d/50unattended-upgrades
 # uncomment `Unattended-Upgrade::MailReport "on-change";`
 
 # Add to /etc/apt/apt.conf.d/20auto-upgrades:
+echo 'APT::Periodic::Update-Package-Lists "1";' | sudo tee -a /etc/apt/apt.conf.d/20auto-upgrades
+echo 'APT::Periodic::Unattended-Upgrade "1";' | sudo tee -a /etc/apt/apt.conf.d/20auto-upgrades
 sudo dpkg-reconfigure -f noninteractive unattended-upgrades
 
 # Add email updates
