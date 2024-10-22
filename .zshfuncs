@@ -7,3 +7,156 @@ function cdtmp() {
   builtin pwd
 }
 
+cows=(
+  "ROB"
+  "agent-smith"
+  "alfred"
+  "atst-atat"
+  "batman2"
+  "bender"
+  "boba-fett"
+  "bowser"
+  "bsod"
+  "buzz-lightyear"
+  "c3po-color"
+  "captain-america"
+  "chewbacca"
+  "col-sanders"
+  "darth-vader"
+  "dilbert"
+  "donkeykong"
+  "doomguy"
+  "dr-mario"
+  "dr-robotnik"
+  "einstein-face"
+  "einstein"
+  "eve"
+  "farnsworth"
+  "freeman-face"
+  "freeman"
+  "freeman2"
+  "fry-money"
+  "gandalf"
+  "ganondorf"
+  "glados-potato"
+  "glados-wrecked"
+  "glados2"
+  "greedo"
+  "grinch"
+  "guy-fawkes"
+  "hawking"
+  "hl2-dog"
+  "homestar"
+  "hulk"
+  "indiana-jones"
+  "ironman"
+  "ironman2"
+  "it-crowd"
+  "jesus-ripped"
+  "larry2"
+  "leia"
+  "leia2"
+  "leprechaun"
+  "link2"
+  "lumbergh"
+  "master-chief"
+  "megaman"
+  "milton"
+  "morpheus"
+  "moss"
+  "obi-wan"
+  "palpatine"
+  "pickle-rick-face"
+  "plankton"
+  "professor"
+  "r2d2-c3po"
+  "r2d2"
+  "rayman2"
+  "robocop"
+  "ron-swanson"
+  "samus2"
+  "samus3"
+  "samus-cannon"
+  "scooby-doo"
+  "shaggy"
+  "shrek"
+  "simba"
+  "sonic"
+  "sonic2"
+  "spiderman"
+  "spongebob"
+  "stormtrooper"
+  "strongbad"
+  "superman-cyborg"
+  "terminator"
+  "tesla"
+  "tf2-engineer"
+  "tf2-medic"
+  "tf2-pyro"
+  "tf2-heavy"
+  "tf2-scout"
+  "tf2-sniper"
+  "tf2-soldier"
+  "tf2-spy-knife"
+  "tf2-spy"
+  "tf2-spy2"
+  "this-is-fine"
+  "thor"
+  "vader"
+  "vortigaunt"
+  "wall-e-plant"
+  "wall-e"
+  "wall-e2"
+  "wally"
+  "wheatley"
+  "yoda"
+  "yoda2"
+  "yoshi"
+  "zelda"
+  "zoidberg2"
+  "zoidberg"
+  "boba-fett"
+  "einstein-face"
+  "freeman-face"
+  "glados-potato"
+)
+
+# Replaces /usr/share/cowsay/cows$1$COLUMNS.cow
+function trunc_cow() {
+  cowfile=/usr/share/cowsay/cows/$1$COLUMNS.cow
+  :> $cowfile
+  width=$((COLUMNS-2))
+  if [[ $((COLUMNS%2)) -eq 0 ]]
+  then
+    # width must be odd
+    width=$((COLUMNS-3))
+  fi
+  while IFS="" read -r line || [ -n "$line" ]
+  do
+    newline=$line
+    if [[ ${#line} -gt $COLUMNS ]]; then
+      newline="${line:0:$width}\$x"
+    else
+      newline=$line
+    fi
+    printf '%s\n' $newline >> $cowfile
+  done < /usr/share/cowsay/cows/$1.cow
+}
+
+function cowsay() {
+  # Some cows are too wide for the terminal width I enjoy (typically ~124-139)
+  # for cow in ~/src/cloned/cowsay-files/cows/*; do if [[ $(wc -L $cow | awk '{print $1}') -gt $COLUMNS ]]; then echo "$(wc -L $cow)"; fi; done
+  # This generates an appropriate width cow (trunc_cow) if it doesn't already
+  # exist, and stores it with the width, e.g. "tesla139.cow"
+  if [[ ! -f /usr/share/cowsay/cows/$1$COLUMNS.cow ]]
+  then
+    trunc_cow $1
+  fi
+  /usr/games/cowsay -f $1$COLUMNS < /dev/stdin
+}
+
+function randomcowsay() {
+  randomcow=$(for cow in $cows; do echo $cow; done | sort -R | head -n 1)
+  cowsay $randomcow
+}
+
