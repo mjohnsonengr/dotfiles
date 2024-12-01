@@ -1,4 +1,5 @@
 # TODO: Evolve this into a full script I can run on a fresh debian install.
+# If .xsessionrc appears not to get run, try https://github.com/rvaiya/keyd
 
 # Make sure primary user can run as sudo first by running `adduser username sudo` as root, then logging out/in
 # Set up Tailscale:
