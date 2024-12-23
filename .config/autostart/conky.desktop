@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Conky
+GenericName=Conky
+Comment=Launch Conky
+Icon=conky-logomark-violet
+Categories=Network;
+Exec=conky
+TryExec=conky
+Terminal=false
+X-GNOME-Autostart-Delay=3

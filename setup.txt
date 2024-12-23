@@ -21,6 +21,7 @@ mkdir -p src/cloned  # for git clones
 mkdir bin
 mkdir -p .local/share/fonts
 mkdir -p .config/nvim/bundle
+mkdir -p .config/autostart
 
 # Install oh-my-zsh (before ghar)
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -58,6 +59,7 @@ sudo apt install \
   ca-certificates \     # TODO: need?
   clipit \              # TODO: only host machines?
   command-not-found \
+  conky-all \
   curl \
   fd-find \             # fd: fast Rust version of find
   fzf \                 # fzf: fuzzy-finder (super useful)
@@ -66,6 +68,7 @@ sudo apt install \
   keychain \            # Manage ssh-agent, prevent entering SSH key pw too much
   lf \                  # file manager (sometimes lfm)
   libicu-dev \          # needed for pip installing wheel?
+  lm-sensors \
   lsb-release \         # TODO: ??
   mercurial \
   msmtp \               # for unattended-upgrades
