@@ -214,6 +214,9 @@ curl -L https://nixos.org/nix/install | sh  # from https://nixos.org/download.ht
 # Make sure SSH server is hardened (disable password auth, disable root, only allow one user
 # Check out wsl2-network.ps1 https://gist.github.com/daehahn/497fa04c0156b1a762c70ff3f9f7edae?WT.mc_id=-blog-scottha
 
+### For keyd
+sudo cp .templates/keyd.conf /etc/keyd/default.conf
+
 ### msmtp/sendmail and unattended-upgrade
 # See https://wiki.debian.org/UnattendedUpgrades
 sudo cp .templates/msmtprc /etc/msmtprc
