@@ -39,10 +39,6 @@ src/ghar/bin/ghar install
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/paulkaefer/cowsay-files.git src/cloned/cowsay-files
-cd src/cloned/cowsay-files
-make install
-cd
 
 fc-cache
 zsh  # if not already open
@@ -132,6 +128,16 @@ snap install pycharm-community --classic
 Windows Terminal: https://windowsterminalthemes.dev/
 ChromeOS SSH: chrome-untrusted://terminal/html/nassh_preferences_editor.html
 
+# cowsay-files
+git clone https://github.com/paulkaefer/cowsay-files.git src/cloned/cowsay-files
+cd src/cloned/cowsay-files
+sudo make install
+sudo cp /usr/local/share/cowsay-files/cows/* /usr/share/cowsay/cows
+sudo cp /usr/local/share/cowsay-files/cows/true-color/* /usr/share/cowsay/cows
+sudo chmod a+w /usr/share/cowsay/cows
+sudo chmod a+w /usr/share/cowsay/cows/*
+cd
+
 #######################
 # Misc system settings
 #######################
@@ -216,7 +222,11 @@ curl -L https://nixos.org/nix/install | sh  # from https://nixos.org/download.ht
 # Check out wsl2-network.ps1 https://gist.github.com/daehahn/497fa04c0156b1a762c70ff3f9f7edae?WT.mc_id=-blog-scottha
 
 ### For keyd
+git clone https://github.com/rvaiya/keyd src/cloned/keyd
 sudo cp .templates/keyd.conf /etc/keyd/default.conf
+cd src/cloned/keyd
+make && sudo make install
+sudo systemctl enable --now keyd
 
 ### msmtp/sendmail and unattended-upgrade
 # See https://wiki.debian.org/UnattendedUpgrades
