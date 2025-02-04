@@ -145,6 +145,11 @@ cd
 ### For Windows dual-boot machines, (store local time instead of UTC)
 timedatectl set-local-rtc 1
 
+### For non-server linux machines with CRD:
+# polkit gets messed up somehow, here are some sample policy files that need to
+# be created:
+# https://askubuntu.com/questions/1390324/after-installing-chrome-remote-desktop-polkit-permissions-are-all-skrewed-up
+# Others include one for reboot/shutdown
 
 ### For non-Google machine
 # brew
