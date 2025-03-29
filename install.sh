@@ -17,8 +17,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # Add ghar and use it to install dotfiles
-git clone https://github.com/philips/ghar.git $HOME/src/ghar
-rm $HOME/.profile $HOME/.bashrc $HOME/.zshrc
+git clone https://github.com/mjohnsonengr/ghar.git $HOME/src/ghar
+rm $HOME/.profile $HOME/.bashrc $HOME/.zshrc $HOME/.zprofile $HOME/.gitconfig
+mv $HOME/dotfiles $HOME/src/ghar/dotfiles
 $HOME/src/ghar/bin/ghar install
 
 # TODO: Install common utilities I like to use?
