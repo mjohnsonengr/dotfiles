@@ -413,6 +413,7 @@ tmux_conf_uninstall_plugins_on_reload=true
 # visit https://github.com/tmux-plugins for available plugins
 set -g @plugin 'laktak/extrakto'
 set -g @plugin 'Morantron/tmux-fingers'
+set -g @fingers-jump-key G
 
 set -g @plugin 'fcsonline/tmux-thumbs'
 set -g @thumbs-osc52 1
