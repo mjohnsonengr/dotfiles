@@ -88,7 +88,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 # Batman -- Debian installs `bat` as `batcat`
-if hash batcat; then
+if hash batcat &> /dev/null; then
   alias bat=batcat
   alias cat="bat --paging=never"
   export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
@@ -96,7 +96,7 @@ if hash batcat; then
 fi
 
 # fd -- Debian installs `fd` as `fdfind`
-if hash fdfind; then
+if hash fdfind &> /dev/null; then
   alias fd=fdfind
 fi
 
@@ -110,7 +110,9 @@ then
 fi
 
 # Setup fzf
-source /usr/share/doc/fzf/examples/key-bindings.zsh
+if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
 if [[ -f /usr/share/doc/fzf/examples/completion.zsh ]]; then
   source /usr/share/doc/fzf/examples/completion.zsh
 fi
@@ -169,7 +171,7 @@ if [ -e "$HOME/.pyenv" ]; then
 fi
 
 # zoxide
-if hash zoxide; then
+if hash zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
 fi
 
@@ -180,6 +182,6 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
-if hash broot; then
+if hash broot &> /dev/null; then
   source ~/.config/broot/launcher/bash/br
 fi
