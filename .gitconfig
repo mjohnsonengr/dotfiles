@@ -24,5 +24,3 @@
   log = false
 [init]
   defaultBranch = main
-[safe]
-	directory = /home/mej/src/rs/rust-on-nails

@@ -146,9 +146,11 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [ -f "/home/mej/.ghcup/env" ] && source "/home/mej/.ghcup/env" # ghcup-env
 if [ -e /home/mej/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mej/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [ -e "$HOME/.nvm" ] ; then
+  export NVM_DIR="$HOME/.nvm";
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh";  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion";  # This loads nvm bash_completion
+fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/mej/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mej/opt/google-cloud-sdk/path.zsh.inc'; fi
@@ -174,6 +176,9 @@ fi
 if hash zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
 fi
+
+# Need this for dev containers to usually work with podman.
+export PODMAN_USERNS=keep-id
 
 # command-not-found
 # TODO: Don't think this is needed with command-not-found plugin?
