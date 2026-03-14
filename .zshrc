@@ -190,3 +190,9 @@ fi
 if hash broot &> /dev/null; then
   source ~/.config/broot/launcher/bash/br
 fi
+
+# Added by flyctl installer
+if [ -e "$HOME/.fly" ]; then
+  export FLYCTL_INSTALL="$HOME/.fly"
+  export PATH="$FLYCTL_INSTALL/bin:$PATH"
+fi
