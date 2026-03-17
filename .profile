@@ -49,3 +49,7 @@ eval `dircolors "$HOME/.dircolors"`
 if [ -d "$HOME/.cargo/env" ] ; then
   . "$HOME/.cargo/env"
 fi
+
+if [ -d "/usr/local/go/bin" ] ; then
+  PATH=$PATH:/usr/local/go/bin
+fi
